@@ -591,8 +591,8 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   border-radius: 50%;
   animation: pulse 1.6s ease-in-out infinite;
 }
-.float-1 { top: 8%;     right: 2%;  animation-delay: 0s;   }
-.float-2 { top: 46%;    right: 22%; animation-delay: 1.2s; }
+.float-1 { top: 16%;    right: 16%; animation-delay: 0s;   }
+.float-2 { top: 46%;    right: 38%; animation-delay: 1.2s; }
 .float-3 { bottom: 16%; right: 5%;  animation-delay: 2.1s; }
 @keyframes pulse { 0%,100% { transform:scale(1); opacity:1; } 50% { transform:scale(1.6); opacity:0.5; } }
 @keyframes bob   { 0%,100% { transform:translateY(0); }       50% { transform:translateY(-10px); } }
