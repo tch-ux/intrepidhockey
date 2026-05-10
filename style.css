@@ -266,12 +266,11 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 /* ── HERO ─────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 100vh;
   background: var(--white);
   overflow: hidden;
   display: flex;
   align-items: flex-start;
-  padding: 90px 40px 60px;
+  padding: 90px 40px 120px;
 }
 .hero-bg-grid {
   position: absolute;
