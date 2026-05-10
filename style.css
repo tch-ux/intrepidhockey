@@ -354,6 +354,15 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   padding: 0.06em 0.04em 0.16em;
 }
 
+.mf-row-1 .mf-line {
+  align-items: flex-end;
+}
+
+.mf-row-1 .mf-swap {
+  display: inline-flex;
+  align-items: flex-end;
+}
+
 .hero-manifesto {
   display: flex;
   flex-direction: column;
