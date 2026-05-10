@@ -121,15 +121,17 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 40px;
+  padding: 8px 40px;
   background: rgba(255,255,255,0.78);
   -webkit-backdrop-filter: blur(14px) saturate(160%);
   backdrop-filter: blur(14px) saturate(160%);
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 .nav-logo img {
-  width: 200px;
+  width: auto;
   height: auto;
+  max-width: 200px;
+  max-height: 46px;
 }
 .nav-links {
   display: flex;
@@ -260,7 +262,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 @media (max-width: 880px) {
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
-  .nav { padding: 16px 20px; }
+  .nav { padding: 8px 20px; }
 }
 
 /* ── HERO ─────────────────────────────────────────────────── */
@@ -271,7 +273,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   overflow: hidden;
   display: flex;
   align-items: flex-start;
-  padding: 150px 40px 60px;
+  padding: 100px 40px 60px;
 }
 .hero-bg-grid {
   position: absolute;
@@ -612,7 +614,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .hero-floats { opacity: 0; pointer-events: none; }
 }
 @media (max-width: 880px) {
-  .hero { padding: 130px 20px 60px; }
+  .hero { padding: 90px 20px 60px; }
   .hero-player { width: 110%; right: -20%; bottom: -8%; opacity: 0.2; }
   .hero-scroll { display: none; }
 }
