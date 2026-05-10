@@ -348,6 +348,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
 @keyframes rise { to { transform: translateY(0); } }
 
+.word-static > span {
+  transform: translateY(0);
+  animation: none;
+  padding: 0.06em 0.04em 0.16em;
+}
+
 .hero-manifesto {
   display: flex;
   flex-direction: column;
