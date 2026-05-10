@@ -512,12 +512,13 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   flex-wrap: wrap;
 }
 .hero-tag {
-  max-width: 380px;
+  max-width: 480px;
   font-size: 17px;
   line-height: 1.55;
   color: var(--neutral-700);
 }
 .hero-tag strong { color: var(--neutral-900); font-weight: 600; }
+.hero-tag .accent { color: var(--teal-600); font-weight: 600; }
 .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 
 /* ── BUTTONS ──────────────────────────────────────────────── */
