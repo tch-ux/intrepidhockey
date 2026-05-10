@@ -296,8 +296,18 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 24px;
+}
+.hero-main-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+}
+.hero-text {
+  flex: 1;
+  min-width: 0;
 }
 .hero-eyebrow {
   font-family: var(--font-display);
@@ -548,15 +558,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
 /* Hero player illustration */
 .hero-player {
-  position: absolute;
-  right: -4%; bottom: -4%;
-  width: 64%;
-  max-width: 1100px;
+  flex-shrink: 0;
+  width: 44%;
   pointer-events: none;
-  z-index: 1;
   filter: drop-shadow(0 30px 60px rgba(0,109,117,0.15));
 }
-.hero-player img { width: 100%; }
+.hero-player img { width: 100%; display: block; }
 
 /* Floating pills */
 .hero-floats { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
@@ -629,7 +636,8 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 @media (max-width: 880px) {
   .hero { padding: 84px 20px 60px; }
-  .hero-player { width: 110%; right: -20%; bottom: -8%; opacity: 0.2; }
+  .hero-main-row { flex-direction: column; }
+  .hero-player { width: 70%; max-width: 340px; align-self: center; opacity: 0.25; }
   .hero-scroll { display: none; }
 }
 @media (max-width: 540px) {
