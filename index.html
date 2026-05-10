@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intrepid Hockey — Europe to North America</title>
+  <meta name="description" content="Scouting, advising and development for European U15–U20 hockey players targeting AAA, Prep, CHL, USHL and Junior A in North America.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom cursor (hidden on touch/mobile via CSS) -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ── NAV ─────────────────────────────────────────────── -->
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#" class="nav-logo" aria-label="Intrepid Hockey — home">
+        <img src="assets/logo-full.png" alt="Intrepid Hockey">
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#players">Players</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="#contact" class="nav-cta">Book a call</a>
+        <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#players">Players</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary">
+        Book a call
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+      </a>
+    </nav>
+  </div>
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ── HERO ────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+
+      <!-- Decorative rink lines -->
+      <svg class="hero-rink" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="rinkFade" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0"   stop-color="#006D75" stop-opacity="0"/>
+            <stop offset="0.3" stop-color="#006D75" stop-opacity="0.25"/>
+            <stop offset="0.7" stop-color="#006D75" stop-opacity="0.25"/>
+            <stop offset="1"   stop-color="#006D75" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <line x1="800" y1="0" x2="800" y2="900" stroke="url(#rinkFade)" stroke-width="3" stroke-dasharray="6 8"/>
+        <circle cx="320"  cy="700" r="70"  stroke="#006D75" stroke-opacity="0.15" fill="none" stroke-width="1.5"/>
+        <circle cx="320"  cy="700" r="14"  fill="#006D75" fill-opacity="0.15"/>
+        <circle cx="1280" cy="700" r="70"  stroke="#006D75" stroke-opacity="0.15" fill="none" stroke-width="1.5"/>
+        <circle cx="1280" cy="700" r="14"  fill="#006D75" fill-opacity="0.15"/>
+        <circle cx="800"  cy="450" r="120" stroke="#006D75" stroke-opacity="0.1"  fill="none" stroke-width="1.5"/>
+      </svg>
+
+      <!-- Player illustration -->
+      <div class="hero-player" id="hero-player" aria-hidden="true">
+        <img src="assets/player-teal.png" alt="">
+      </div>
+
+      <!-- Floating status pills -->
+      <div class="hero-floats" aria-hidden="true">
+        <div class="hero-float float-1"><span class="dot"></span>Live scouting · Europe</div>
+        <div class="hero-float float-2"><span class="dot"></span>U15 · U16 · U18 · U20</div>
+        <div class="hero-float float-3"><span class="dot"></span>AAA · Prep · CHL · USHL</div>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-eyebrow reveal">Europe → North America · U15 — U20 · Scouting &amp; Advising</div>
+
+        <!-- Manifesto headline -->
+        <h1 id="hero-heading" class="hero-title hero-manifesto">
+
+          <!-- Row 1: NEW RULES. -->
+          <span class="mf-row mf-row-1">
+            <span class="mf-tag" aria-hidden="true">01</span>
+            <span class="mf-line">
+              <span class="word"><span style="animation-delay:0s">New</span></span>
+              <span class="mf-swap" aria-label="Rules">
+                <span class="mf-swap-old" aria-hidden="true">OLD</span>
+                <span class="word accent"><span style="animation-delay:1.1s">Rules</span></span>
+              </span>
+              <span class="mf-dot" aria-hidden="true">.</span>
+            </span>
+          </span>
+
+          <!-- Row 2: NEW PATHWAYS. -->
+          <span class="mf-row mf-row-2">
+            <span class="mf-tag" aria-hidden="true">02</span>
+            <span class="mf-line">
+              <span class="word"><span style="animation-delay:0.18s">New</span></span>
+              <span class="word stroke"><span style="animation-delay:0.24s">Pathways</span></span>
+              <span class="mf-arrow" aria-hidden="true">
+                <svg viewBox="0 0 140 50" fill="none" preserveAspectRatio="xMidYMid meet">
+                  <path d="M4 38 C 30 6, 70 8, 130 22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                  <polyline points="118 11 134 22 122 36" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </span>
+              <span class="mf-dot" aria-hidden="true">.</span>
+            </span>
+          </span>
+
+          <!-- Row 3: ONE CLEAR GOAL. -->
+          <span class="mf-row mf-row-3">
+            <span class="mf-tag" aria-hidden="true">03</span>
+            <span class="mf-line">
+              <span class="word"><span style="animation-delay:0.34s">One</span></span>
+              <span class="word"><span style="animation-delay:0.4s">clear</span></span>
+              <span class="mf-target">
+                <span class="word accent"><span style="animation-delay:0.46s">goal</span></span>
+                <span class="mf-target-ring" aria-hidden="true">
+                  <span class="r r1"></span>
+                  <span class="r r2"></span>
+                  <span class="r r3"></span>
+                </span>
+              </span>
+              <span class="mf-dot" aria-hidden="true">.</span>
+            </span>
+          </span>
+
+        </h1>
+
+        <div class="hero-subline">
+          <p class="hero-tag reveal">
+            We scout, advise and develop European U15 — U20 players for placement in AAA, Prep, CHL, USHL and Junior A.
+            <strong>Built for players who don't back down.</strong>
+          </p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#contact">
+              <span>Get scouted</span>
+              <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#services">
+              <span>Our work</span>
+              <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ── MARQUEE ──────────────────────────────────────────── -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-item">
+          <span>Scouting</span><span class="dot"></span>
+          <span class="outline">Advising</span><span class="dot"></span>
+          <span>Development</span><span class="dot"></span>
+          <span class="outline">AAA</span><span class="dot"></span>
+          <span>Prep</span><span class="dot"></span>
+          <span class="outline">CHL</span><span class="dot"></span>
+          <span>USHL</span><span class="dot"></span>
+          <span class="outline">Junior A</span><span class="dot"></span>
+          <span>U15 — U20</span><span class="dot"></span>
+        </div>
+        <div class="marquee-item">
+          <span>Scouting</span><span class="dot"></span>
+          <span class="outline">Advising</span><span class="dot"></span>
+          <span>Development</span><span class="dot"></span>
+          <span class="outline">AAA</span><span class="dot"></span>
+          <span>Prep</span><span class="dot"></span>
+          <span class="outline">CHL</span><span class="dot"></span>
+          <span>USHL</span><span class="dot"></span>
+          <span class="outline">Junior A</span><span class="dot"></span>
+          <span>U15 — U20</span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SERVICES ─────────────────────────────────────────── -->
+    <section id="services" class="services" aria-labelledby="services-heading">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-num">01 — What we do</div>
+          <h2 id="services-heading" class="section-title">Built around <span class="accent">the player.</span></h2>
+        </div>
+        <p class="section-tag">Three disciplines, one mission — move European players from their home ice to AAA, Prep, CHL, USHL and Junior A in North America.</p>
+      </div>
+      <div class="svc-grid">
+
+        <div class="svc reveal">
+          <div>
+            <div class="svc-num">01 / Service</div>
+            <h3 class="svc-title">Scouting</h3>
+            <p class="svc-desc">European U15 — U20 evaluations across leagues and tournaments. Detailed reports built for AAA, Prep, CHL, USHL and Junior A pathways.</p>
+          </div>
+          <img class="svc-img" src="assets/player-white.png" alt="">
+          <div class="svc-arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </div>
+        </div>
+
+        <div class="svc reveal">
+          <div>
+            <div class="svc-num">02 / Service</div>
+            <h3 class="svc-title">Advising</h3>
+            <p class="svc-desc">Career strategy for European players and families crossing to North America. League selection, school fit, commitments, contract reads.</p>
+          </div>
+          <img class="svc-img" src="assets/player-white-2.png" alt="">
+          <div class="svc-arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </div>
+        </div>
+
+        <div class="svc reveal">
+          <div>
+            <div class="svc-num">03 / Service</div>
+            <h3 class="svc-title">Development</h3>
+            <p class="svc-desc">Year-round programs preparing European U15 — U20 players for the pace, structure and standards of NA hockey.</p>
+          </div>
+          <img class="svc-img" src="assets/player-white.png" alt="">
+          <div class="svc-arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PROCESS ──────────────────────────────────────────── -->
+    <section id="process" class="process" aria-labelledby="process-heading">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-num">02 — How it works</div>
+          <h2 id="process-heading" class="section-title">A path with <span class="accent">no shortcuts.</span></h2>
+        </div>
+        <p class="section-tag">Four stages. Honest reads. The work shows up later — in the games, in the calls, in the offers.</p>
+      </div>
+
+      <div class="process-stage">
+        <div class="process-stage-tabs" role="tablist" aria-label="Process stages">
+          <button class="process-tab active" role="tab" aria-selected="true"  aria-controls="panel-0" data-tab="0">
+            <span>Watch &amp; evaluate</span><span class="num">01</span>
+          </button>
+          <button class="process-tab" role="tab" aria-selected="false" aria-controls="panel-1" data-tab="1">
+            <span>Map the path</span><span class="num">02</span>
+          </button>
+          <button class="process-tab" role="tab" aria-selected="false" aria-controls="panel-2" data-tab="2">
+            <span>Develop with intent</span><span class="num">03</span>
+          </button>
+          <button class="process-tab" role="tab" aria-selected="false" aria-controls="panel-3" data-tab="3">
+            <span>Place &amp; support</span><span class="num">04</span>
+          </button>
+        </div>
+
+        <!-- Panel 0 -->
+        <div class="process-panel" id="panel-0" role="tabpanel">
+          <div class="process-panel-num" aria-hidden="true">01</div>
+          <img class="process-panel-img" src="assets/player-white.png" alt="">
+          <h3 class="process-panel-title">Watch <span class="accent">&amp; evaluate</span></h3>
+          <p class="process-panel-desc">Live and video evaluation of European U15 — U20 players across full seasons — pace, decisions, compete level, transitions, projection vs NA standard.</p>
+          <ul class="process-panel-list">
+            <li>Game film breakdown</li>
+            <li>In-arena scouting in Europe</li>
+            <li>Skating &amp; hockey IQ scoring</li>
+          </ul>
+        </div>
+
+        <!-- Panel 1 -->
+        <div class="process-panel hidden" id="panel-1" role="tabpanel">
+          <div class="process-panel-num" aria-hidden="true">02</div>
+          <img class="process-panel-img" src="assets/player-white.png" alt="">
+          <h3 class="process-panel-title">Map <span class="accent">the path</span></h3>
+          <p class="process-panel-desc">A custom NA roadmap — AAA, Prep, CHL, USHL or other Junior A. Honest reads on timing, fit and the realistic short list for the family.</p>
+          <ul class="process-panel-list">
+            <li>Pathway analysis</li>
+            <li>School &amp; league fit</li>
+            <li>12-month timeline</li>
+          </ul>
+        </div>
+
+        <!-- Panel 2 -->
+        <div class="process-panel hidden" id="panel-2" role="tabpanel">
+          <div class="process-panel-num" aria-hidden="true">03</div>
+          <img class="process-panel-img" src="assets/player-white.png" alt="">
+          <h3 class="process-panel-title">Develop <span class="accent">with intent</span></h3>
+          <p class="process-panel-desc">On-ice and off-ice work tied to what NA scouts and coaches actually look for. Closing the gap before the player arrives.</p>
+          <ul class="process-panel-list">
+            <li>Skill modules</li>
+            <li>Strength &amp; recovery</li>
+            <li>Cultural &amp; language prep</li>
+          </ul>
+        </div>
+
+        <!-- Panel 3 -->
+        <div class="process-panel hidden" id="panel-3" role="tabpanel">
+          <div class="process-panel-num" aria-hidden="true">04</div>
+          <img class="process-panel-img" src="assets/player-white.png" alt="">
+          <h3 class="process-panel-title">Place <span class="accent">&amp; support</span></h3>
+          <p class="process-panel-desc">When the offer comes from the right program, we read the room. Coaches, billet families, paperwork — we sit on your side of the table.</p>
+          <ul class="process-panel-list">
+            <li>Coach &amp; program intros</li>
+            <li>Commitment review</li>
+            <li>Year-round mentorship in NA</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── STATS ────────────────────────────────────────────── -->
+    <section class="stats" aria-label="By the numbers">
+      <div class="stats-grid">
+        <div class="stat reveal">
+          <div class="stat-num"><span class="counter" data-end="240">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">European players evaluated</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-num"><span class="counter" data-end="38">0</span></div>
+          <div class="stat-label">NA placements secured</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-num"><span class="counter" data-end="12">0</span></div>
+          <div class="stat-label">Countries scouted</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-num"><span class="counter" data-end="5">0</span></div>
+          <div class="stat-label">Age groups · U15 — U20</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PLAYERS ──────────────────────────────────────────── -->
+    <section id="players" class="players" aria-labelledby="players-heading">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-num">03 — On our radar</div>
+          <h2 id="players-heading" class="section-title">Players we're <span class="accent">tracking now.</span></h2>
+        </div>
+        <p class="section-tag">A rolling sample of European players in our active book — placed across AAA, Prep, CHL, USHL and Junior A.</p>
+      </div>
+      <div class="players-grid reveal-stagger">
+
+        <div class="pcard">
+          <div class="pcard-img">
+            <div class="pcard-img-inner" style="background-image:url('https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=600&q=80')"></div>
+            <div class="pcard-tag">USHL</div>
+          </div>
+          <div class="pcard-meta">
+            <div>
+              <div class="pcard-name">M. Reichert</div>
+              <div class="pcard-pos">C · 2008 · GER</div>
+            </div>
+            <div class="pcard-rating">92<span class="max">/100</span></div>
+          </div>
+        </div>
+
+        <div class="pcard">
+          <div class="pcard-img">
+            <div class="pcard-img-inner" style="background-image:url('https://images.unsplash.com/photo-1580692475446-c2fabbbe2dac?w=600&q=80')"></div>
+            <div class="pcard-tag">CHL</div>
+          </div>
+          <div class="pcard-meta">
+            <div>
+              <div class="pcard-name">J. Kovacs</div>
+              <div class="pcard-pos">D · 2007 · SVK</div>
+            </div>
+            <div class="pcard-rating">88<span class="max">/100</span></div>
+          </div>
+        </div>
+
+        <div class="pcard">
+          <div class="pcard-img">
+            <div class="pcard-img-inner" style="background-image:url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80')"></div>
+            <div class="pcard-tag">Prep</div>
+          </div>
+          <div class="pcard-meta">
+            <div>
+              <div class="pcard-name">L. Andersen</div>
+              <div class="pcard-pos">LW · 2009 · SWE</div>
+            </div>
+            <div class="pcard-rating">85<span class="max">/100</span></div>
+          </div>
+        </div>
+
+        <div class="pcard">
+          <div class="pcard-img">
+            <div class="pcard-img-inner" style="background-image:url('https://images.unsplash.com/photo-1565783280479-d6f1f4d5d6d4?w=600&q=80')"></div>
+            <div class="pcard-tag">Junior A</div>
+          </div>
+          <div class="pcard-meta">
+            <div>
+              <div class="pcard-name">T. Novak</div>
+              <div class="pcard-pos">G · 2008 · CZE</div>
+            </div>
+            <div class="pcard-rating">90<span class="max">/100</span></div>
+          </div>
+        </div>
+
+        <div class="pcard">
+          <div class="pcard-img">
+            <div class="pcard-img-inner" style="background-image:url('https://images.unsplash.com/photo-1551958219-acbc608c6377?w=600&q=80')"></div>
+            <div class="pcard-tag">AAA</div>
+          </div>
+          <div class="pcard-meta">
+            <div>
+              <div class="pcard-name">S. Petrov</div>
+              <div class="pcard-pos">RW · 2010 · LAT</div>
+            </div>
+            <div class="pcard-rating">81<span class="max">/100</span></div>
+          </div>
+        </div>
+
+        <div class="pcard">
+          <div class="pcard-img">
+            <div class="pcard-img-inner" style="background-image:url('https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&q=80')"></div>
+            <div class="pcard-tag">Committed</div>
+          </div>
+          <div class="pcard-meta">
+            <div>
+              <div class="pcard-name">B. Larsen</div>
+              <div class="pcard-pos">D · 2007 · NOR</div>
+            </div>
+            <div class="pcard-rating">94<span class="max">/100</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CTA ─────────────────────────────────────────────── -->
+    <section id="contact" class="cta" aria-labelledby="cta-heading">
+      <img class="cta-bg-player" src="assets/player-mint.png" alt="">
+      <div class="cta-inner">
+        <div class="section-num reveal" style="justify-content:center">04 — Take the next step</div>
+        <h2 id="cta-heading" class="cta-title reveal">
+          Ready to <span class="stroke">play</span><br>
+          <span class="accent">fearless?</span>
+        </h2>
+        <div class="cta-actions reveal">
+          <a href="mailto:hello@intrepidhockey.com" class="btn btn-primary">
+            <span>Book a call</span>
+            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </a>
+          <a href="#" class="btn btn-ghost">
+            <span>Player intake form</span>
+            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ───────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo-full.png" alt="Intrepid Hockey">
+      </div>
+      <div class="footer-meta">
+        <a href="mailto:hello@intrepidhockey.com">hello@intrepidhockey.com</a>
+        <a href="tel:+15550148800">+1 (555) 014 — 88</a>
+        <a href="#">Instagram · X · LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Intrepid Hockey. All rights reserved.</span>
+      <span>Built for players who don't back down.</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
