@@ -129,7 +129,9 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 .nav-logo img {
   width: 200px;
-  height: auto;
+  height: 44px;
+  object-fit: contain;
+  object-position: left center;
 }
 .nav-links {
   display: flex;
@@ -271,7 +273,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   overflow: hidden;
   display: flex;
   align-items: flex-start;
-  padding: 160px 40px 60px;
+  padding: 96px 40px 60px;
 }
 .hero-bg-grid {
   position: absolute;
@@ -612,7 +614,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .hero-floats { opacity: 0; pointer-events: none; }
 }
 @media (max-width: 880px) {
-  .hero { padding: 140px 20px 60px; }
+  .hero { padding: 90px 20px 60px; }
   .hero-player { width: 110%; right: -20%; bottom: -8%; opacity: 0.2; }
   .hero-scroll { display: none; }
 }
