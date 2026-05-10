@@ -141,6 +141,28 @@
   counters.forEach((c) => io.observe(c));
 })();
 
+/* ── HERO ROW-1 "NEW" — start at Row-2 teal position ──────── */
+(function () {
+  function positionSwapNew() {
+    const swapWord  = document.querySelector('.mf-swap .word');
+    const row2New   = document.querySelector('.mf-new-echo');
+    const swapSpan  = document.querySelector('.mf-swap .word > span');
+    if (!swapWord || !row2New || !swapSpan) return;
+
+    const r1 = swapWord.getBoundingClientRect();
+    const r2 = row2New.getBoundingClientRect();
+    swapSpan.style.transform = 'translateY(' + (r2.top - r1.top) + 'px)';
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      requestAnimationFrame(positionSwapNew);
+    });
+  } else {
+    requestAnimationFrame(positionSwapNew);
+  }
+})();
+
 /* ── HERO PLAYER PARALLAX (desktop only) ───────────────────── */
 (function () {
   const player = document.getElementById('hero-player');
