@@ -924,56 +924,39 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .process-tab { font-size: 18px; padding: 18px 0; }
 }
 
-/* ── STATS ────────────────────────────────────────────────── */
-.stats {
-  padding: 100px 40px;
-  background: var(--teal-600);
-  color: #fff;
-  position: relative;
-  overflow: hidden;
+/* ── HONEST PATH ──────────────────────────────────────────── */
+.honest-path {
+  padding: 120px 40px;
+  background: var(--neutral-900);
 }
-.stats::after {
-  content: "";
-  position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 80px);
-  pointer-events: none;
-}
-.stats-grid {
-  max-width: 1400px;
+.honest-path-inner {
+  max-width: 900px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  position: relative;
-  z-index: 2;
 }
-.stat { padding: 32px 28px; border-right: 1px solid rgba(255,255,255,0.18); }
-.stat:last-child { border-right: none; }
-.stat-num {
+.honest-path-heading {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(64px, 8vw, 120px);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  display: flex;
-  align-items: flex-start;
-}
-.stat-num .suffix { font-size: 0.4em; margin-top: 0.3em; margin-left: 6px; color: var(--teal-200); }
-.stat-label {
-  margin-top: 14px;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.22em;
+  font-size: clamp(44px, 6.5vw, 88px);
+  line-height: 1;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
-  color: var(--teal-100);
+  color: var(--white);
+  margin-bottom: 40px;
+}
+.honest-path-heading .accent {
+  color: var(--teal-400);
+  font-style: italic;
+}
+.honest-path-body {
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.75;
+  color: var(--neutral-400);
+  max-width: 700px;
 }
 
 @media (max-width: 880px) {
-  .stats { padding: 60px 20px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .stat { border-bottom: 1px solid rgba(255,255,255,0.18); }
-  .stat:nth-child(2) { border-right: none; }
-  .stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
+  .honest-path { padding: 80px 20px; }
+  .honest-path-heading { margin-bottom: 28px; }
 }
 
 /* ── PLAYERS ──────────────────────────────────────────────── */
