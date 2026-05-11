@@ -632,9 +632,18 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
 /* ── HERO RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 880px) {
-  .hero { padding: 84px 20px 60px; }
+  .hero { padding: 84px 20px 120px; }
   .hero-main-row { flex-direction: column; }
-  .hero-player { width: 70%; max-width: 340px; align-self: center; opacity: 0.25; }
+  .hero-player {
+    position: absolute;
+    top: 40px; right: -8%;
+    width: 92%; max-width: none;
+    opacity: 0.1;
+    z-index: 0;
+    align-self: unset;
+    filter: none;
+  }
+  .hero-text { position: relative; z-index: 1; }
   .hero-scroll { display: none; }
   .hero-floats { opacity: 0; pointer-events: none; }
 }
