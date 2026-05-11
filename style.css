@@ -912,6 +912,20 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   opacity: 0.18;
   pointer-events: none;
 }
+.process-img-plan {
+  bottom: -8%; right: -6%; width: 72%;
+  transform: rotate(-7deg);
+  transform-origin: bottom right;
+}
+.process-img-icetime {
+  bottom: -14%; right: -8%; width: 80%;
+  transform: rotate(4deg);
+  transform-origin: bottom right;
+}
+.process-img-roster {
+  bottom: 0; right: auto; left: -4%; width: 108%;
+  transform-origin: bottom center;
+}
 
 @media (max-width: 980px) {
   .process { padding: 80px 20px; }
