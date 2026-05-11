@@ -758,6 +758,11 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   transform-origin: bottom right;
   filter: drop-shadow(0 12px 28px rgba(0,109,117,0.22));
 }
+.svc-img-icetime {
+  right: auto; left: 50%; bottom: -8%; width: 105%;
+  transform: translateY(20px) scale(0.9) translateX(-50%);
+  transform-origin: bottom center;
+}
 .svc:hover { background: var(--teal-600); }
 .svc:hover .svc-num { color: var(--teal-200); }
 .svc:hover .svc-title, .svc:hover .svc-desc { color: #fff; }
