@@ -927,7 +927,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 /* ── HONEST PATH ──────────────────────────────────────────── */
 .honest-path {
   padding: 120px 40px;
-  background: var(--teal-600);
+  background: var(--teal-400);
 }
 .honest-path-inner {
   max-width: 900px;
