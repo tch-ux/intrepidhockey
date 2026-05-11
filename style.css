@@ -763,6 +763,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   transform: translateY(20px) scale(0.9);
   transform-origin: bottom right;
 }
+.svc-img-roster {
+  left: 50%; right: auto; bottom: 0; width: 110%;
+  transform: translateY(20px) scale(0.9) translateX(-50%);
+  transform-origin: bottom center;
+}
+.svc:hover .svc-img-roster { opacity: 1; transform: translateY(0) scale(1) translateX(-50%); }
 .svc:hover { background: var(--teal-600); }
 .svc:hover .svc-num { color: var(--teal-200); }
 .svc:hover .svc-title, .svc:hover .svc-desc { color: #fff; }
