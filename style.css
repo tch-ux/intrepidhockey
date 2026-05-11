@@ -784,6 +784,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .services { padding: 80px 20px; }
   .svc-grid { grid-template-columns: 1fr; }
   .svc { border-right: none; padding: 40px 28px 160px; min-height: 460px; }
+  .services .section-title .accent { white-space: nowrap; }
 }
 
 /* ── PROCESS ──────────────────────────────────────────────── */
