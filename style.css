@@ -767,10 +767,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 .svc-img-icetime {
   right: -8%; bottom: -19%; width: 86%;
+  transform: rotate(5deg);
   transform-origin: bottom right;
 }
 .svc-img-roster {
   left: 12%; right: auto; bottom: 0; width: 110%;
+  transform: translateY(12px);
   transform-origin: bottom center;
 }
 .svc:hover { background: var(--teal-600); }
@@ -779,6 +781,8 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .svc:hover .svc-arrow { border-color: #fff; transform: rotate(-45deg); }
 .svc:hover .svc-img { opacity: 0.3; }
 .svc:hover .svc-img-plan { transform: rotate(-5deg); }
+.svc:hover .svc-img-icetime { transform: rotate(2deg); }
+.svc:hover .svc-img-roster { transform: translateY(0); }
 
 @media (max-width: 980px) {
   .services { padding: 80px 20px; }
