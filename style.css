@@ -766,8 +766,9 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   transform-origin: bottom right;
 }
 .svc-img-icetime {
-  right: -8%; bottom: -19%; width: 86%;
-  transform: rotate(5deg);
+  right: -4%; bottom: 0%; width: 80%;
+  opacity: 0.18;
+  transform: rotate(3deg);
   transform-origin: bottom right;
 }
 .svc-img-roster {
