@@ -1249,8 +1249,8 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
 /* ── FOOTER ───────────────────────────────────────────────── */
 .footer {
-  background: var(--neutral-900);
-  color: var(--neutral-300);
+  background: var(--teal-600);
+  color: rgba(255,255,255,0.7);
   padding: 60px 40px 32px;
 }
 .footer-inner {
@@ -1277,12 +1277,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.footer-meta a { color: var(--neutral-300); transition: color .2s; }
+.footer-meta a { color: rgba(255,255,255,0.7); transition: color .2s; }
 .footer-meta a:hover { color: #fff; }
 .footer-bottom {
   max-width: 1400px;
   margin: 60px auto 0;
-  border-top: 1px solid var(--neutral-700);
+  border-top: 1px solid rgba(255,255,255,0.2);
   padding-top: 24px;
   display: flex;
   justify-content: space-between;
