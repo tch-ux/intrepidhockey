@@ -1137,6 +1137,82 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .players-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ── FOUNDER'S STORY ──────────────────────────────────────── */
+.founder {
+  background: var(--neutral-100);
+  border-top: 1px solid var(--neutral-200);
+  border-bottom: 1px solid var(--neutral-200);
+  padding: 100px 40px;
+}
+.founder-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.founder-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
+}
+.founder-photo {
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--neutral-200);
+}
+.founder-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.founder-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neutral-400);
+}
+.founder-photo-placeholder svg { width: 64px; height: 64px; }
+.founder-caption {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--neutral-400);
+  font-style: italic;
+  text-align: center;
+}
+.founder-text { padding-top: 8px; }
+.founder-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(36px, 4vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--neutral-900);
+  margin: 16px 0 36px;
+}
+.founder-accent { color: var(--teal-400); font-style: italic; }
+.founder-body { display: flex; flex-direction: column; gap: 20px; }
+.founder-body p {
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.8;
+  color: var(--neutral-600);
+}
+@media (max-width: 880px) {
+  .founder { padding: 72px 20px; }
+  .founder-inner { grid-template-columns: 1fr; gap: 40px; }
+  .founder-visual { position: static; }
+  .founder-photo { aspect-ratio: 4 / 3; }
+}
+
 /* ── CTA ──────────────────────────────────────────────────── */
 .cta {
   position: relative;
