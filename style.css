@@ -1149,9 +1149,15 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "visual header"
+    "visual text";
   gap: 80px;
   align-items: start;
 }
+.founder-visual  { grid-area: visual; }
+.founder-header  { grid-area: header; }
+.founder-text    { grid-area: text; }
 .founder-visual {
   display: flex;
   flex-direction: column;
@@ -1208,9 +1214,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 @media (max-width: 880px) {
   .founder { padding: 72px 20px; }
-  .founder-inner { grid-template-columns: 1fr; gap: 40px; }
-  .founder-visual { position: static; order: 2; }
-  .founder-text { order: 1; }
+  .founder-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "visual" "text";
+    gap: 40px;
+  }
+  .founder-visual { position: static; }
   .founder-photo { aspect-ratio: auto; height: auto; }
   .founder-photo img { height: auto; object-fit: contain; }
 }
