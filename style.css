@@ -1209,7 +1209,8 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 @media (max-width: 880px) {
   .founder { padding: 72px 20px; }
   .founder-inner { grid-template-columns: 1fr; gap: 40px; }
-  .founder-visual { position: static; }
+  .founder-visual { position: static; order: 2; }
+  .founder-text { order: 1; }
   .founder-photo { aspect-ratio: auto; height: auto; }
   .founder-photo img { height: auto; object-fit: contain; }
 }
