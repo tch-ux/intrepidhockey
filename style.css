@@ -768,6 +768,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .svc-img-icetime {
   right: -4%; bottom: 0%; width: 80%;
   opacity: 0.18;
+  filter: invert(1);
   transform: rotate(3deg);
   transform-origin: bottom right;
 }
