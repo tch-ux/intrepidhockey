@@ -1236,8 +1236,9 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .founder-sig-img {
   height: 52px;
   width: auto;
+  max-width: 200px;
   display: block;
-  opacity: 0.45;
+  opacity: 0.6;
 }
 .founder-heading {
   font-family: var(--font-display);
@@ -1247,7 +1248,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--neutral-900);
-  margin: 16px 0 18px;
+  margin: 16px 0 8px;
 }
 .founder-accent { color: var(--teal-400); font-style: italic; }
 .founder-body { display: flex; flex-direction: column; gap: 20px; }
