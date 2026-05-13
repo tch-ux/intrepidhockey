@@ -562,6 +562,123 @@
     </div>
   </section>
 
+  <!-- ── EVALUATION FORM ───────────────────────────────────── -->
+  <!-- NOTE: Replace "YOUR_FORM_ID" in the action below with your Formspree ID.
+       Sign up free at https://formspree.io — takes 2 minutes. -->
+  <section class="eval" id="evaluation" aria-labelledby="eval-heading">
+    <div class="eval-inner">
+
+      <!-- Left: heading + copy -->
+      <div class="eval-intro reveal">
+        <div class="section-num">05 — Player Evaluation</div>
+        <h2 id="eval-heading" class="eval-title">
+          Tell us about<br>
+          <span class="eval-accent">your player.</span>
+        </h2>
+        <p class="eval-desc">Fill in the details below and we'll put together a personalized development overview. No sales pitch — just an honest assessment of where your player stands and what the path forward looks like.</p>
+        <ul class="eval-promises">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Response within 48 hours
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            No commitment required
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Completely confidential
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: form -->
+      <div class="eval-form-wrap reveal">
+        <form
+          class="eval-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+          novalidate
+        >
+          <div class="eval-row">
+            <div class="eval-field">
+              <label for="player-first">Player first name</label>
+              <input id="player-first" type="text" name="player_first" placeholder="e.g. Jakub" required>
+            </div>
+            <div class="eval-field">
+              <label for="player-last">Player last name</label>
+              <input id="player-last" type="text" name="player_last" placeholder="e.g. Novák" required>
+            </div>
+          </div>
+
+          <div class="eval-row">
+            <div class="eval-field">
+              <label for="birth-year">Birth year</label>
+              <input id="birth-year" type="number" name="birth_year" placeholder="e.g. 2009" min="2000" max="2015" required>
+            </div>
+            <div class="eval-field">
+              <label for="position">Position</label>
+              <select id="position" name="position" required>
+                <option value="" disabled selected>Select position</option>
+                <option value="Forward">Forward</option>
+                <option value="Defense">Defense</option>
+                <option value="Goalie">Goalie</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="eval-row">
+            <div class="eval-field">
+              <label for="current-team">Current team</label>
+              <input id="current-team" type="text" name="current_team" placeholder="e.g. HC Slovan U16" required>
+            </div>
+            <div class="eval-field">
+              <label for="level">Current level</label>
+              <select id="level" name="level" required>
+                <option value="" disabled selected>Select level</option>
+                <option value="AAA">AAA</option>
+                <option value="AA">AA</option>
+                <option value="Prep School">Prep School</option>
+                <option value="Junior A">Junior A</option>
+                <option value="Junior B">Junior B</option>
+                <option value="High School">High School</option>
+                <option value="College">College</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="eval-row">
+            <div class="eval-field">
+              <label for="parent-name">Parent / Guardian name</label>
+              <input id="parent-name" type="text" name="parent_name" placeholder="e.g. Martin Novák" required>
+            </div>
+            <div class="eval-field">
+              <label for="email">Email address</label>
+              <input id="email" type="email" name="email" placeholder="e.g. martin@email.com" required>
+            </div>
+          </div>
+
+          <div class="eval-row eval-row--full">
+            <div class="eval-field">
+              <label for="goals">Goals &amp; background <span class="eval-optional">(optional)</span></label>
+              <textarea id="goals" name="goals" rows="4" placeholder="Tell us about your player's goals, current situation, and what you're hoping to achieve…"></textarea>
+            </div>
+          </div>
+
+          <div class="eval-submit">
+            <button type="submit" class="btn btn-primary">
+              <span>Submit evaluation</span>
+              <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+            </button>
+            <p class="eval-privacy">Your information is kept private and never shared.</p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ── FOOTER ───────────────────────────────────────────── -->
   <footer class="footer" id="footer">
     <div class="footer-inner">
