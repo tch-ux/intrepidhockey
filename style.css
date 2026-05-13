@@ -1155,7 +1155,8 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   grid-template-areas:
     "visual header"
     "visual text";
-  gap: 80px;
+  column-gap: 80px;
+  row-gap: 16px;
   align-items: start;
 }
 .founder-visual  { grid-area: visual; }
