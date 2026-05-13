@@ -1519,8 +1519,9 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .endorse-attr {
   margin-top: 48px;
   display: flex;
-  align-items: center;
-  gap: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
 }
 .endorse-avatar {
   width: 64px;
