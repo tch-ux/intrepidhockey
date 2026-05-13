@@ -1384,6 +1384,10 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   text-transform: uppercase;
   color: var(--neutral-600);
 }
+.eval-req {
+  color: var(--teal-600);
+  font-weight: 700;
+}
 .eval-optional {
   font-weight: 400;
   text-transform: none;

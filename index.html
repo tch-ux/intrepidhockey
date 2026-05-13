@@ -602,22 +602,22 @@
         >
           <div class="eval-row">
             <div class="eval-field">
-              <label for="player-first">Player first name</label>
+              <label for="player-first">Player first name <span class="eval-req">*</span></label>
               <input id="player-first" type="text" name="player_first" placeholder="e.g. Jakub" required>
             </div>
             <div class="eval-field">
-              <label for="player-last">Player last name</label>
+              <label for="player-last">Player last name <span class="eval-req">*</span></label>
               <input id="player-last" type="text" name="player_last" placeholder="e.g. Novák" required>
             </div>
           </div>
 
           <div class="eval-row">
             <div class="eval-field">
-              <label for="birth-year">Birth year</label>
+              <label for="birth-year">Birth year <span class="eval-req">*</span></label>
               <input id="birth-year" type="number" name="birth_year" placeholder="e.g. 2009" min="2000" max="2015" required>
             </div>
             <div class="eval-field">
-              <label for="position">Position</label>
+              <label for="position">Position <span class="eval-req">*</span></label>
               <select id="position" name="position" required>
                 <option value="" disabled selected>Select position</option>
                 <option value="Forward">Forward</option>
@@ -629,33 +629,30 @@
 
           <div class="eval-row">
             <div class="eval-field">
-              <label for="current-team">Current team</label>
+              <label for="current-team">Current team <span class="eval-req">*</span></label>
               <input id="current-team" type="text" name="current_team" placeholder="e.g. HC Slovan U16" required>
             </div>
             <div class="eval-field">
-              <label for="level">Current level</label>
-              <select id="level" name="level" required>
-                <option value="" disabled selected>Select level</option>
-                <option value="AAA">AAA</option>
-                <option value="AA">AA</option>
-                <option value="Prep School">Prep School</option>
-                <option value="Junior A">Junior A</option>
-                <option value="Junior B">Junior B</option>
-                <option value="High School">High School</option>
-                <option value="College">College</option>
-                <option value="Other">Other</option>
-              </select>
+              <label for="phone">Phone <span class="eval-req">*</span></label>
+              <input id="phone" type="tel" name="phone" placeholder="e.g. +421 905 123 456" required>
             </div>
           </div>
 
           <div class="eval-row">
             <div class="eval-field">
-              <label for="parent-name">Parent / Guardian name</label>
+              <label for="parent-name">Parent / Guardian name <span class="eval-req">*</span></label>
               <input id="parent-name" type="text" name="parent_name" placeholder="e.g. Martin Novák" required>
             </div>
             <div class="eval-field">
-              <label for="email">Email address</label>
+              <label for="email">Email address <span class="eval-req">*</span></label>
               <input id="email" type="email" name="email" placeholder="e.g. martin@email.com" required>
+            </div>
+          </div>
+
+          <div class="eval-row eval-row--full">
+            <div class="eval-field">
+              <label for="elite-prospects">Elite Prospects profile link <span class="eval-req">*</span></label>
+              <input id="elite-prospects" type="url" name="elite_prospects" placeholder="e.g. https://www.eliteprospects.com/player/123456/player-name" required>
             </div>
           </div>
 
