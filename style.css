@@ -927,14 +927,19 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .process-tab { font-size: 18px; padding: 18px 0; }
 }
 
-/* ── HONEST PATH ──────────────────────────────────────────── */
-.honest-path {
-  padding: 120px 40px;
-  background: #00a8b3;
+/* ── VERDICTS: COMMITMENT + ENDORSEMENT SIDE BY SIDE ─────── */
+.verdicts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-.honest-path-inner {
-  max-width: 900px;
-  margin: 0 auto;
+
+/* Left panel — Commitment */
+.verdict-commitment {
+  background: #00a8b3;
+  padding: 100px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .honest-path-eyebrow {
   font-family: var(--font-display);
@@ -959,35 +964,47 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .honest-path-heading {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(44px, 6.5vw, 88px);
-  line-height: 1;
+  font-size: clamp(38px, 4vw, 64px);
+  line-height: 0.95;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--white);
-  margin-bottom: 44px;
+  margin-bottom: 36px;
 }
 .honest-path-accent {
   color: var(--neutral-900);
   font-style: italic;
 }
 .honest-path-body {
-  font-size: clamp(16px, 1.6vw, 19px);
+  font-size: clamp(15px, 1.3vw, 17px);
   line-height: 1.8;
   color: rgba(255,255,255,0.78);
-  max-width: 720px;
 }
-.honest-path-body strong {
-  color: var(--white);
-  font-weight: 700;
-}
-.honest-path-body em {
-  font-style: italic;
-  color: var(--white);
-}
+.honest-path-body strong { color: var(--white); font-weight: 700; }
+.honest-path-body em { font-style: italic; color: var(--white); }
 
-@media (max-width: 880px) {
-  .honest-path { padding: 80px 20px; }
-  .honest-path-heading { margin-bottom: 32px; }
+/* Right panel — Endorsement */
+.verdict-endorse {
+  background: #1a1a1a;
+  padding: 100px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.verdict-endorse .endorse-quote { margin-top: 28px; }
+.verdict-endorse .endorse-qmark { font-size: clamp(56px, 6vw, 88px); }
+.verdict-endorse .endorse-quote p { font-size: clamp(15px, 1.45vw, 20px); }
+.verdict-endorse .endorse-attr { margin-top: 36px; }
+.verdict-endorse .endorse-name { font-size: 18px; }
+
+@media (max-width: 960px) {
+  .verdicts { grid-template-columns: 1fr; }
+  .verdict-commitment,
+  .verdict-endorse { padding: 80px 32px; }
+}
+@media (max-width: 640px) {
+  .verdict-commitment,
+  .verdict-endorse { padding: 64px 20px; }
 }
 
 /* ── PLAYERS ──────────────────────────────────────────────── */
@@ -1461,19 +1478,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .eval-submit { flex-direction: column; align-items: flex-start; }
 }
 
-/* ── ENDORSEMENT ─────────────────────────────────────────── */
-.endorse {
-  background: #1a1a1a;
-  padding: 100px 40px;
-}
-.endorse-inner {
-  max-width: 860px;
-  margin: 0 auto;
-}
-.endorse-content {
-  display: flex;
-  flex-direction: column;
-}
+/* ── ENDORSEMENT COMPONENTS (shared with verdict-endorse) ─── */
 
 /* Header */
 .endorse-label {
@@ -1576,7 +1581,6 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 
 @media (max-width: 640px) {
-  .endorse { padding: 72px 24px; }
   .endorse-attr { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
 
