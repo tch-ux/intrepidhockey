@@ -1345,40 +1345,19 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 @media (max-width: 767px) {
   .players-grid { grid-template-columns: repeat(2, 1fr); }
 
-  /* Card becomes flex column: 1:1 photo on top, name strip below */
-  .pcard {
-    aspect-ratio: unset;
-    display: flex;
-    flex-direction: column;
-    transition: transform 150ms ease;
-  }
-  .pcard:active { transform: scale(0.97); }
+  /* Tap feedback */
+  .pcard         { transition: transform 150ms ease; }
+  .pcard:active  { transform: scale(0.97); }
 
-  /* Photo: relative-positioned square that fills full card width */
-  .pcard-photo {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    flex-shrink: 0;
-  }
-  /* Suppress desktop photo-zoom on touch */
-  .pcard-photo-inner             { transition: none; }
+  /* Suppress photo-zoom on touch */
+  .pcard-photo-inner              { transition: none; }
   .pcard:hover .pcard-photo-inner { transform: none; }
 
-  /* Name strip: solid dark area below the photo */
-  .pcard-label {
-    position: relative;
-    inset: auto;
-    background: var(--neutral-900);
-    padding: 12px 16px;
-    justify-content: flex-start;
-    transition: none;
-  }
-  /* Keep label visible on touch devices (hover persists after tap) */
+  /* Keep gradient overlay always visible on touch
+     (hover state can linger after a tap on iOS/Android) */
   .pcard:hover .pcard-label { opacity: 1; pointer-events: auto; }
 
-  /* Hide hover-detail panel — full info shown in sheet instead */
+  /* Hide hover-detail panel — full info shown in sheet */
   .pcard-body { display: none; }
 }
 
