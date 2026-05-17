@@ -1344,6 +1344,19 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 @media (max-width: 767px) {
   .players-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Fix name doubling on touch: always show body panel, drop label */
+  .pcard-label { display: none; }
+  .pcard-body  { transform: translateY(0); transition: none; }
+
+  /* Elite Prospects button — squeeze onto one line at ~160px card width */
+  .pcard-ep {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    padding: 6px 10px;
+    gap: 4px;
+  }
+  .pcard-ep svg { width: 10px; height: 10px; }
 }
 
 /* ── FOUNDER'S STORY ──────────────────────────────────────── */
