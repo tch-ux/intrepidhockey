@@ -1066,6 +1066,31 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   text-transform: uppercase;
   letter-spacing: 0.04em;
   transition: color 200ms ease;
+  position: relative;
+}
+
+/* Watermark step icon — decorative, sits behind chevron on the right */
+.acc-icon-wm {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.acc-icon-wm svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.13;
+  color: #fff;
+  stroke-width: 1.5;
+  /* override any position/size set by .process-panel-img */
+  position: static !important;
 }
 .acc-head:hover,
 .acc-head[aria-expanded="true"] { color: #fff; }
@@ -1086,6 +1111,8 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   flex-shrink: 0;
   color: var(--neutral-500);
   transition: transform 300ms ease, color 200ms ease;
+  position: relative;
+  z-index: 1;
 }
 .acc-head[aria-expanded="true"] .acc-chevron {
   transform: rotate(180deg);
