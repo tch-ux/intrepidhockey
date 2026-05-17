@@ -91,27 +91,150 @@
   els.forEach((el) => io.observe(el));
 })();
 
-/* ── PROCESS TABS ──────────────────────────────────────────── */
+/* ── PROCESS TABS + MOBILE ACCORDION ──────────────────────── */
 (function () {
-  const tabs   = document.querySelectorAll('.process-tab');
-  const panels = document.querySelectorAll('.process-panel');
+  const stageTabs = document.querySelector('.process-stage-tabs');
+  const tabs      = [...document.querySelectorAll('.process-tab')];
+  const panels    = [...document.querySelectorAll('.process-panel')];
   if (!tabs.length) return;
 
+  let activeIdx = 0;
+  let animating = false;
+
+  /* Initialise tabindex — active tab focusable, others not */
+  tabs.forEach((tab, i) => tab.setAttribute('tabindex', i === 0 ? '0' : '-1'));
+
+  /* ── activate(index) ─────────────────────────────────────── */
   function activate(index) {
+    if (index === activeIdx && panels[index] && !panels[index].classList.contains('hidden')) return;
+
+    const prevIdx  = activeIdx;
+    activeIdx      = index;
+
+    /* Tab states + tabindex */
     tabs.forEach((tab, i) => {
-      const active = i === index;
-      tab.classList.toggle('active', active);
-      tab.setAttribute('aria-selected', String(active));
+      const on = i === index;
+      tab.classList.toggle('active', on);
+      tab.setAttribute('aria-selected', String(on));
+      tab.setAttribute('tabindex', on ? '0' : '-1');
     });
-    panels.forEach((panel, i) => {
-      panel.classList.toggle('hidden', i !== index);
-    });
+
+    /* Progress rail */
+    if (stageTabs) {
+      stageTabs.style.setProperty('--rail-fill', ((index + 1) / tabs.length * 100) + '%');
+    }
+
+    /* Cross-fade panels */
+    const prevPanel = panels[prevIdx];
+    const nextPanel = panels[index];
+    if (!prevPanel || prevIdx === index || animating) {
+      panels.forEach((p, i) => p.classList.toggle('hidden', i !== index));
+      return;
+    }
+
+    animating = true;
+    prevPanel.classList.add('panel-fade-out');
+
+    setTimeout(() => {
+      prevPanel.classList.add('hidden');
+      prevPanel.classList.remove('panel-fade-out');
+      nextPanel.classList.remove('hidden');
+      nextPanel.classList.add('panel-fade-in');
+      setTimeout(() => {
+        nextPanel.classList.remove('panel-fade-in');
+        animating = false;
+      }, 200);
+    }, 150);
   }
 
+  /* Click — the only trigger (mouseenter removed: it's noise, not signal) */
+  tabs.forEach((tab, i) => tab.addEventListener('click', () => activate(i)));
+
+  /* Keyboard: WAI-ARIA Tabs pattern (arrow keys, Home, End) */
   tabs.forEach((tab, i) => {
-    tab.addEventListener('click',      () => activate(i));
-    tab.addEventListener('mouseenter', () => activate(i));
+    tab.addEventListener('keydown', (e) => {
+      let next;
+      if      (e.key === 'ArrowDown'  || e.key === 'ArrowRight') next = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowUp'    || e.key === 'ArrowLeft')  next = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home')                                  next = 0;
+      else if (e.key === 'End')                                   next = tabs.length - 1;
+      if (next !== undefined) {
+        e.preventDefault();
+        activate(next);
+        tabs[next].focus();
+      }
+    });
   });
+
+  /* Init rail at 25% (tab 01 active) */
+  if (stageTabs) stageTabs.style.setProperty('--rail-fill', '25%');
+
+  /* ── MOBILE ACCORDION ────────────────────────────────────── */
+  const stage = document.querySelector('.process-stage');
+  if (!stage) return;
+
+  /* Build accordion DOM from existing tab + panel data */
+  const accordion = document.createElement('div');
+  accordion.className = 'process-accordion';
+  stage.insertAdjacentElement('afterend', accordion);
+
+  tabs.forEach((tab, i) => {
+    const panel   = panels[i];
+    const label   = tab.querySelector('span:not(.num)').textContent;
+    const num     = tab.querySelector('.num').textContent;
+    const titleEl = panel.querySelector('.process-panel-title');
+    const descEl  = panel.querySelector('.process-panel-desc');
+    const listEl  = panel.querySelector('.process-panel-list');
+    const svgEl   = panel.querySelector('svg.process-panel-img');
+
+    const item = document.createElement('div');
+    item.className = 'acc-item';
+    item.innerHTML =
+      `<button class="acc-head" aria-expanded="${i === 0 ? 'true' : 'false'}"
+               aria-controls="acc-body-${i}">
+        <span class="acc-num">${num}</span>
+        <span class="acc-label">${label}</span>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="acc-body" id="acc-body-${i}" role="region">
+        <div class="acc-content">
+          ${svgEl  ? svgEl.outerHTML   : ''}
+          <h3 class="process-panel-title">${titleEl ? titleEl.innerHTML   : ''}</h3>
+          <p  class="process-panel-desc">${descEl  ? descEl.textContent  : ''}</p>
+          <ul class="process-panel-list">${listEl  ? listEl.innerHTML    : ''}</ul>
+        </div>
+      </div>`;
+
+    accordion.appendChild(item);
+  });
+
+  /* Accordion toggle logic — single-open, smooth max-height */
+  const accHeads  = [...accordion.querySelectorAll('.acc-head')];
+  const accBodies = [...accordion.querySelectorAll('.acc-body')];
+
+  function openAcc(idx) {
+    accHeads[idx].setAttribute('aria-expanded', 'true');
+    accBodies[idx].style.maxHeight = accBodies[idx].scrollHeight + 'px';
+  }
+  function closeAcc(idx) {
+    accHeads[idx].setAttribute('aria-expanded', 'false');
+    accBodies[idx].style.maxHeight = '0';
+  }
+
+  accHeads.forEach((head, i) => {
+    head.addEventListener('click', () => {
+      const isOpen = head.getAttribute('aria-expanded') === 'true';
+      accHeads.forEach((_, j) => closeAcc(j));
+      if (!isOpen) openAcc(i);
+    });
+  });
+
+  /* Open first item once layout is available */
+  requestAnimationFrame(() => openAcc(0));
 })();
 
 /* ── STAT COUNTERS ─────────────────────────────────────────── */
@@ -139,6 +262,31 @@
   }, { threshold: 0.4 });
 
   counters.forEach((c) => io.observe(c));
+})();
+
+/* ── GDPR CONSENT — disable submit until checkbox checked ──── */
+(function () {
+  const cb     = document.getElementById('gdpr-consent');
+  const btn    = document.getElementById('eval-submit-btn');
+  const errMsg = document.getElementById('consent-error');
+  const form   = btn && btn.closest('form');
+  if (!cb || !btn || !form) return;
+
+  function syncBtn() {
+    btn.disabled = !cb.checked;
+    if (cb.checked) errMsg.hidden = true;
+  }
+
+  cb.addEventListener('change', syncBtn);
+  syncBtn(); // init
+
+  form.addEventListener('submit', (e) => {
+    if (!cb.checked) {
+      e.preventDefault();
+      errMsg.hidden = false;
+      cb.focus();
+    }
+  });
 })();
 
 /* ── HERO ROW-1 "NEW" — start at Row-2 teal position ──────── */

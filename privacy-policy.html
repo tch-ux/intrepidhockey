@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Intrepid Hockey</title>
+  <meta name="description" content="Privacy Policy for Intrepid Hockey — how we collect, use and protect your personal data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Privacy Policy page — prose layout ──────────────────── */
+    .pp-hero {
+      background: var(--neutral-900);
+      color: #fff;
+      padding: 120px 40px 80px;
+    }
+    .pp-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .pp-hero .section-num { color: var(--teal-300); margin-bottom: 20px; }
+    .pp-hero .section-num::before { background: var(--teal-300); }
+    .pp-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(48px, 7vw, 96px);
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .pp-title span { color: var(--teal-400); font-style: italic; }
+    .pp-updated {
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.06em;
+    }
+
+    .pp-body {
+      padding: 80px 40px 120px;
+      background: var(--white);
+    }
+    .pp-body-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Prose styles */
+    .pp-body h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 28px;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--neutral-900);
+      margin: 52px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--neutral-100);
+    }
+    .pp-body h2:first-child { margin-top: 0; }
+    .pp-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--neutral-600);
+      margin-bottom: 16px;
+    }
+    .pp-body ul {
+      margin: 0 0 20px 0;
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pp-body li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--neutral-600);
+    }
+    .pp-body li::before {
+      content: "";
+      width: 6px; height: 6px;
+      background: var(--teal-400);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 9px;
+    }
+    .pp-body strong { color: var(--neutral-900); font-weight: 700; }
+    .pp-body a { color: var(--teal-600); text-decoration: underline; }
+    .pp-body a:hover { color: var(--teal-400); }
+    .pp-todo {
+      display: inline-block;
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      color: #856404;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin: 0 2px;
+    }
+
+    @media (max-width: 640px) {
+      .pp-hero { padding: 80px 24px 48px; }
+      .pp-body { padding: 48px 24px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ── NAV ─────────────────────────────────────────────── -->
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="Intrepid Hockey — home">
+        <img src="assets/logo-narrow.png" alt="Intrepid Hockey">
+      </a>
+      <div class="nav-links">
+        <a href="index.html#services">The Plan</a>
+        <a href="index.html#process">The Playbook</a>
+        <a href="index.html#players">Pipeline</a>
+        <a href="index.html#contact">Connect</a>
+      </div>
+      <div class="nav-right">
+        <!-- TODO: Replace href with actual booking URL -->
+        <a href="index.html#footer" class="nav-cta">Book a call</a>
+        <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <nav>
+      <a href="index.html#services">The Plan</a>
+      <a href="index.html#process">The Playbook</a>
+      <a href="index.html#players">Pipeline</a>
+      <a href="index.html#contact">Connect</a>
+      <!-- TODO: Replace href with actual booking URL -->
+      <a href="index.html#footer" class="btn btn-ghost">
+        Book a call
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+      </a>
+    </nav>
+  </div>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <section class="pp-hero">
+    <div class="pp-hero-inner">
+      <div class="section-num">Legal</div>
+      <h1 class="pp-title">Privacy<br><span>Policy.</span></h1>
+      <p class="pp-updated">
+        <!-- TODO: Insert publication date -->
+        Last updated: <span class="pp-todo">TODO: Insert date</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ── BODY ─────────────────────────────────────────────── -->
+  <main class="pp-body">
+    <div class="pp-body-inner">
+
+      <h2>1. Data Controller</h2>
+      <p>This website is operated by:</p>
+      <p>
+        <strong><span class="pp-todo">TODO: Insert legal company name</span></strong><br>
+        <span class="pp-todo">TODO: Insert registered address</span><br>
+        <span class="pp-todo">TODO: Insert IČO / company registration number</span><br>
+        Email: <a href="mailto:hello@intrepid.sk">hello@intrepid.sk</a>
+      </p>
+
+      <h2>2. What Data We Collect</h2>
+      <p>When you submit an evaluation request, we collect:</p>
+      <ul>
+        <li>Player's first and last name</li>
+        <li>Player's birth year and playing position</li>
+        <li>Player's current team</li>
+        <li>Parent / guardian name</li>
+        <li>Contact email and phone number</li>
+        <li>Elite Prospects profile link (optional)</li>
+        <li>Goals and background information you provide</li>
+      </ul>
+      <p>We do not collect sensitive personal data, financial information, or data from third-party trackers beyond standard website analytics.</p>
+
+      <h2>3. Why We Collect It</h2>
+      <p>We use this information solely to:</p>
+      <ul>
+        <li>Evaluate your player's profile and prepare a personalized development overview</li>
+        <li>Contact you to discuss the evaluation and next steps</li>
+        <li>Respond to your inquiries</li>
+      </ul>
+      <p>We do not sell, rent, or share your data with third parties for marketing purposes.</p>
+
+      <h2>4. Legal Basis</h2>
+      <p>We process your data on the basis of your <strong>explicit consent</strong> (GDPR Article 6(1)(a)), given when you submit the evaluation form. You may withdraw consent at any time by emailing <a href="mailto:hello@intrepid.sk">hello@intrepid.sk</a>.</p>
+
+      <h2>5. How Long We Keep It</h2>
+      <p>We retain submitted information for as long as our consulting relationship is active, plus 12 months for follow-up purposes. After that, data is deleted unless we are legally required to retain it longer.</p>
+
+      <h2>6. Your Rights Under GDPR</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Access the data we hold about you</li>
+        <li>Request correction of inaccurate data</li>
+        <li>Request deletion of your data ("right to be forgotten")</li>
+        <li>Request restriction of processing</li>
+        <li>Data portability</li>
+        <li>Withdraw consent at any time</li>
+        <li>Lodge a complaint with the Slovak Data Protection Authority (Úrad na ochranu osobných údajov SR)</li>
+      </ul>
+      <p>To exercise any of these rights, email <a href="mailto:hello@intrepid.sk">hello@intrepid.sk</a>.</p>
+
+      <h2>7. Data Security</h2>
+      <p>Submitted information is transmitted over encrypted connections (HTTPS) and stored securely. Access is limited to Intrepid Hockey personnel directly involved in evaluation.</p>
+
+      <h2>8. Cookies and Analytics</h2>
+      <p>
+        <!-- TODO: Add cookie/analytics disclosure based on what trackers the site actually uses.
+             If only essential cookies are used, state that.
+             If Google Analytics or similar is used, disclose it and link to opt-out. -->
+        <span class="pp-todo">TODO: Add cookie / analytics disclosure based on trackers actually in use. If only essential cookies: state that. If Google Analytics or similar: disclose and link to opt-out.</span>
+      </p>
+
+      <h2>9. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top reflects the most recent revision. Material changes will be communicated via the website.</p>
+
+      <h2>10. Contact</h2>
+      <p>Questions about this Privacy Policy or your data?<br>
+      Email: <a href="mailto:hello@intrepid.sk">hello@intrepid.sk</a></p>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ───────────────────────────────────────────── -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo-full.png" alt="Intrepid Hockey">
+      </div>
+      <div class="footer-meta">
+        <a href="mailto:hello@intrepid.sk">hello@intrepid.sk</a>
+        <a href="tel:+421905740203">EU &nbsp;+421 905 740 203</a>
+        <a href="tel:+14236765273">US/CAN &nbsp;+1 423 676 5273</a>
+        <a href="https://www.instagram.com/intrepidhockey/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Intrepid Hockey. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html" class="footer-privacy-link">Privacy Policy</a></span>
+      <span>Built for players who don't back down.</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
