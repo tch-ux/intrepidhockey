@@ -766,6 +766,27 @@
     </div>
   </footer>
 
+  <!-- ── PLAYER DETAIL SHEET (mobile only) ────────────────── -->
+  <div class="player-sheet" id="player-sheet"
+       role="dialog" aria-modal="true"
+       aria-labelledby="sheet-player-name"
+       aria-hidden="true">
+    <div class="player-sheet-backdrop" id="player-sheet-backdrop"></div>
+    <div class="player-sheet-panel">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <button class="sheet-close" id="sheet-close" aria-label="Close player details">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="sheet-photo" id="sheet-photo" aria-hidden="true"></div>
+      <div class="sheet-body"  id="sheet-body"></div>
+    </div>
+  </div>
+
   <script src="main.js"></script>
 </body>
 </html>

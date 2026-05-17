@@ -324,3 +324,154 @@
       `translate3d(${y * 0.05}px, ${y * 0.15}px, 0) scale(${1 + y * 0.0003})`;
   }, { passive: true });
 })();
+
+/* ── MOBILE PLAYER CARD SHEET ──────────────────────────────── */
+(function () {
+  const MQL          = window.matchMedia('(max-width: 767px)');
+  const sheet        = document.getElementById('player-sheet');
+  if (!sheet) return;
+
+  const backdrop     = document.getElementById('player-sheet-backdrop');
+  const closeBtn     = document.getElementById('sheet-close');
+  const sheetPhoto   = document.getElementById('sheet-photo');
+  const sheetBody    = document.getElementById('sheet-body');
+  const cards        = [...document.querySelectorAll('.pcard')];
+
+  let activeCard     = null;
+  let closeTimer     = null;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const CLOSE_DELAY   = reducedMotion ? 20 : 230; // match CSS close duration
+
+  /* ── ARIA: add interactive attrs on mobile, remove on desktop ── */
+  function setCardAttrs(on) {
+    cards.forEach(card => {
+      if (on) {
+        const nameEl = card.querySelector('.pcard-body .pcard-name');
+        card.setAttribute('role',          'button');
+        card.setAttribute('tabindex',      '0');
+        card.setAttribute('aria-haspopup', 'dialog');
+        card.setAttribute('aria-expanded', 'false');
+        if (nameEl) {
+          card.setAttribute('aria-label',
+            'View details for ' + nameEl.textContent.trim());
+        }
+      } else {
+        ['role','tabindex','aria-haspopup','aria-expanded','aria-label']
+          .forEach(a => card.removeAttribute(a));
+      }
+    });
+  }
+
+  /* ── Populate sheet from clicked card ── */
+  function populate(card) {
+    // Photo — detect placeholder vs real image
+    const photoInner = card.querySelector('.pcard-photo-inner');
+    sheetPhoto.innerHTML = '';
+    if (photoInner && photoInner.classList.contains('pcard-photo-placeholder')) {
+      const ph = document.createElement('div');
+      ph.className = 'sheet-photo-placeholder';
+      ph.innerHTML = photoInner.innerHTML;
+      sheetPhoto.appendChild(ph);
+    } else if (photoInner) {
+      const inner = document.createElement('div');
+      inner.className = 'sheet-photo-inner';
+      inner.style.backgroundImage = photoInner.style.backgroundImage;
+      sheetPhoto.appendChild(inner);
+    }
+
+    // Body — inject .pcard-body children directly (keeps all classes + links)
+    const body = card.querySelector('.pcard-body');
+    sheetBody.innerHTML = body ? body.innerHTML : '';
+
+    // Give the name element its labelledby id for aria
+    const nameInSheet = sheetBody.querySelector('.pcard-name');
+    if (nameInSheet) nameInSheet.id = 'sheet-player-name';
+  }
+
+  /* ── Open ── */
+  function openSheet(card) {
+    clearTimeout(closeTimer);
+    sheet.classList.remove('closing');
+
+    activeCard = card;
+    populate(card);
+
+    card.setAttribute('aria-expanded', 'true');
+    sheet.setAttribute('aria-hidden', 'false');
+    sheet.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    // Focus close button once the panel starts animating in
+    requestAnimationFrame(() => closeBtn.focus());
+  }
+
+  /* ── Close ── */
+  function closeSheet() {
+    if (!activeCard) return;
+    const card = activeCard;
+
+    sheet.classList.add('closing');
+    sheet.classList.remove('open');
+
+    clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => {
+      sheet.classList.remove('closing');
+      sheet.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      activeCard = null;
+      card.setAttribute('aria-expanded', 'false');
+      card.focus();
+    }, CLOSE_DELAY);
+  }
+
+  /* ── Card interactions ── */
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      if (MQL.matches) openSheet(card);
+    });
+    card.addEventListener('keydown', e => {
+      if (!MQL.matches) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openSheet(card); }
+    });
+  });
+
+  /* ── Sheet controls ── */
+  closeBtn.addEventListener('click', closeSheet);
+  backdrop.addEventListener('click', closeSheet);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && sheet.classList.contains('open')) closeSheet();
+  });
+
+  /* ── Focus trap ── */
+  sheet.addEventListener('keydown', e => {
+    if (e.key !== 'Tab' || !sheet.classList.contains('open')) return;
+    const focusable = [...sheet.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )];
+    if (focusable.length < 2) return;
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  });
+
+  /* ── Respond to viewport resize (e.g. dev-tools, orientation) ── */
+  MQL.addEventListener('change', e => {
+    setCardAttrs(e.matches);
+    if (!e.matches && activeCard) {
+      // Switched to desktop while sheet was open — close immediately
+      clearTimeout(closeTimer);
+      sheet.classList.remove('open', 'closing');
+      sheet.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      activeCard.setAttribute('aria-expanded', 'false');
+      activeCard = null;
+    }
+  });
+
+  /* ── Init ── */
+  setCardAttrs(MQL.matches);
+})();
