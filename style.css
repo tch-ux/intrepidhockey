@@ -1126,13 +1126,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 .acc-content { padding: 4px 0 32px; }
 .acc-content .process-panel-img {
-  position: static;
-  width: 56px;
-  height: auto;
-  opacity: 0.42;
-  display: block;
-  margin-bottom: 20px;
-  color: var(--teal-300);
+  display: none;
 }
 .acc-content .process-panel-num  { display: none; }
 .acc-content .process-panel-title { font-size: 38px; }
