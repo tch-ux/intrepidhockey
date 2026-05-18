@@ -1387,6 +1387,10 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   pointer-events: all;
   visibility: visible;
 }
+.player-sheet.closing {
+  visibility: visible;   /* stay visible while panel slides back down */
+  pointer-events: none;  /* block taps during the close animation     */
+}
 
 .player-sheet-backdrop {
   position: absolute;

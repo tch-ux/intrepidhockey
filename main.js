@@ -345,22 +345,25 @@
 
 /* ── MOBILE PLAYER CARD SHEET ──────────────────────────────── */
 (function () {
-  const MQL          = window.matchMedia('(max-width: 767px)');
-  const sheet        = document.getElementById('player-sheet');
+  const MQL    = window.matchMedia('(max-width: 767px)');
+  const sheet  = document.getElementById('player-sheet');
   if (!sheet) return;
 
-  const backdrop     = document.getElementById('player-sheet-backdrop');
-  const closeBtn     = document.getElementById('sheet-close');
-  const sheetPhoto   = document.getElementById('sheet-photo');
-  const sheetBody    = document.getElementById('sheet-body');
-  const cards        = [...document.querySelectorAll('.pcard')];
+  const backdrop   = document.getElementById('player-sheet-backdrop');
+  const panel      = sheet.querySelector('.player-sheet-panel');
+  const closeBtn   = document.getElementById('sheet-close');
+  const handle     = sheet.querySelector('.sheet-handle');
+  const sheetPhoto = document.getElementById('sheet-photo');
+  const sheetBody  = document.getElementById('sheet-body');
+  const cards      = [...document.querySelectorAll('.pcard')];
 
-  let activeCard     = null;
-  let closeTimer     = null;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const CLOSE_DELAY   = reducedMotion ? 20 : 230; // match CSS close duration
+  let activeCard   = null;
+  let closeTimer   = null;
+  const reducedMotion  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const CLOSE_DELAY    = reducedMotion ? 20 : 230;
+  const DISMISS_THRESHOLD = 120; // px of downward drag needed to dismiss
 
-  /* ── ARIA: add interactive attrs on mobile, remove on desktop ── */
+  /* ── ARIA attrs (mobile only) ─────────────────────────────── */
   function setCardAttrs(on) {
     cards.forEach(card => {
       if (on) {
@@ -369,10 +372,8 @@
         card.setAttribute('tabindex',      '0');
         card.setAttribute('aria-haspopup', 'dialog');
         card.setAttribute('aria-expanded', 'false');
-        if (nameEl) {
-          card.setAttribute('aria-label',
-            'View details for ' + nameEl.textContent.trim());
-        }
+        if (nameEl) card.setAttribute('aria-label',
+          'View details for ' + nameEl.textContent.trim());
       } else {
         ['role','tabindex','aria-haspopup','aria-expanded','aria-label']
           .forEach(a => card.removeAttribute(a));
@@ -380,9 +381,8 @@
     });
   }
 
-  /* ── Populate sheet from clicked card ── */
+  /* ── Populate sheet from a card ──────────────────────────── */
   function populate(card) {
-    // Photo — detect placeholder vs real image
     const photoInner = card.querySelector('.pcard-photo-inner');
     sheetPhoto.innerHTML = '';
     if (photoInner && photoInner.classList.contains('pcard-photo-placeholder')) {
@@ -396,19 +396,24 @@
       inner.style.backgroundImage = photoInner.style.backgroundImage;
       sheetPhoto.appendChild(inner);
     }
-
-    // Body — inject .pcard-body children directly (keeps all classes + links)
     const body = card.querySelector('.pcard-body');
     sheetBody.innerHTML = body ? body.innerHTML : '';
-
-    // Give the name element its labelledby id for aria
     const nameInSheet = sheetBody.querySelector('.pcard-name');
     if (nameInSheet) nameInSheet.id = 'sheet-player-name';
   }
 
-  /* ── Open ── */
+  /* ── Clear any inline drag styles ───────────────────────── */
+  function resetDragStyles() {
+    panel.style.transform     = '';
+    panel.style.transition    = '';
+    backdrop.style.opacity    = '';
+    backdrop.style.transition = '';
+  }
+
+  /* ── Open ────────────────────────────────────────────────── */
   function openSheet(card) {
     clearTimeout(closeTimer);
+    resetDragStyles();
     sheet.classList.remove('closing');
 
     activeCard = card;
@@ -418,16 +423,15 @@
     sheet.setAttribute('aria-hidden', 'false');
     sheet.classList.add('open');
     document.body.style.overflow = 'hidden';
-
-    // Focus close button once the panel starts animating in
     requestAnimationFrame(() => closeBtn.focus());
   }
 
-  /* ── Close ── */
+  /* ── Close (button / backdrop / Esc) ─────────────────────── */
   function closeSheet() {
     if (!activeCard) return;
     const card = activeCard;
 
+    resetDragStyles();            // clear any mid-drag inline position
     sheet.classList.add('closing');
     sheet.classList.remove('open');
 
@@ -442,46 +446,101 @@
     }, CLOSE_DELAY);
   }
 
-  /* ── Card interactions ── */
+  /* ── Drag-to-dismiss on handle area ─────────────────────── */
+  let isDragging   = false;
+  let dragStartY   = 0;
+  let dragCurrentY = 0;
+
+  // Accept drag from the top 64 px of the panel (covers handle + close btn row)
+  panel.addEventListener('touchstart', e => {
+    if (!sheet.classList.contains('open')) return;
+    const fromTop = e.touches[0].clientY - panel.getBoundingClientRect().top;
+    if (fromTop > 64) return;
+    isDragging   = true;
+    dragStartY   = e.touches[0].clientY;
+    dragCurrentY = 0;
+    panel.style.transition    = 'none';
+    backdrop.style.transition = 'none';
+  }, { passive: true });
+
+  document.addEventListener('touchmove', e => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const deltaY = Math.max(0, e.touches[0].clientY - dragStartY);
+    dragCurrentY = deltaY;
+    panel.style.transform  = `translateY(${deltaY}px)`;
+    // Fade the backdrop in proportion to how far the panel has been dragged
+    backdrop.style.opacity = String(Math.max(0, 1 - deltaY / (panel.offsetHeight * 0.55)));
+  }, { passive: false });
+
+  function onDragEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+
+    if (dragCurrentY >= DISMISS_THRESHOLD) {
+      /* Crossed threshold — continue sliding down from current position */
+      const card = activeCard;
+      panel.style.transition    = 'transform 200ms ease-in';
+      backdrop.style.transition = 'opacity 200ms ease-in';
+      panel.style.transform     = 'translateY(100%)';
+      backdrop.style.opacity    = '0';
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        resetDragStyles();
+        sheet.classList.remove('open', 'closing');
+        sheet.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        activeCard = null;
+        if (card) { card.setAttribute('aria-expanded', 'false'); card.focus(); }
+      }, 200);
+    } else {
+      /* Below threshold — snap back open */
+      panel.style.transition    = 'transform 320ms cubic-bezier(.16,1,.3,1)';
+      backdrop.style.transition = 'opacity 320ms ease-out';
+      panel.style.transform     = 'translateY(0)';
+      backdrop.style.opacity    = '1';
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(resetDragStyles, 320);
+    }
+  }
+
+  document.addEventListener('touchend',    onDragEnd);
+  document.addEventListener('touchcancel', onDragEnd);
+
+  /* ── Card interactions ───────────────────────────────────── */
   cards.forEach(card => {
-    card.addEventListener('click', () => {
-      if (MQL.matches) openSheet(card);
-    });
+    card.addEventListener('click', () => { if (MQL.matches) openSheet(card); });
     card.addEventListener('keydown', e => {
       if (!MQL.matches) return;
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openSheet(card); }
     });
   });
 
-  /* ── Sheet controls ── */
   closeBtn.addEventListener('click', closeSheet);
   backdrop.addEventListener('click', closeSheet);
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && sheet.classList.contains('open')) closeSheet();
   });
 
-  /* ── Focus trap ── */
+  /* ── Focus trap ──────────────────────────────────────────── */
   sheet.addEventListener('keydown', e => {
     if (e.key !== 'Tab' || !sheet.classList.contains('open')) return;
     const focusable = [...sheet.querySelectorAll(
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-    )];
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')];
     if (focusable.length < 2) return;
-    const first = focusable[0];
-    const last  = focusable[focusable.length - 1];
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault(); last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault(); first.focus();
-    }
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first)
+      { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last)
+      { e.preventDefault(); first.focus(); }
   });
 
-  /* ── Respond to viewport resize (e.g. dev-tools, orientation) ── */
+  /* ── Viewport resize ─────────────────────────────────────── */
   MQL.addEventListener('change', e => {
     setCardAttrs(e.matches);
     if (!e.matches && activeCard) {
-      // Switched to desktop while sheet was open — close immediately
       clearTimeout(closeTimer);
+      resetDragStyles();
       sheet.classList.remove('open', 'closing');
       sheet.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
@@ -490,6 +549,6 @@
     }
   });
 
-  /* ── Init ── */
+  /* ── Init ────────────────────────────────────────────────── */
   setCardAttrs(MQL.matches);
 })();
