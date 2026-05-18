@@ -325,6 +325,24 @@
   }, { passive: true });
 })();
 
+/* ── SERVICE CARD TAP STATE (iOS Safari :hover fix) ────────── */
+(function () {
+  /* Only needed on touch devices — desktop :hover works fine */
+  if (!window.matchMedia('(pointer: coarse)').matches) return;
+
+  const svcs = [...document.querySelectorAll('.svc')];
+
+  svcs.forEach(svc => {
+    svc.addEventListener('click', () => {
+      const wasActive = svc.classList.contains('svc-active');
+      /* Collapse any previously active card */
+      svcs.forEach(s => s.classList.remove('svc-active'));
+      /* Toggle the tapped card */
+      if (!wasActive) svc.classList.add('svc-active');
+    });
+  });
+})();
+
 /* ── MOBILE PLAYER CARD SHEET ──────────────────────────────── */
 (function () {
   const MQL          = window.matchMedia('(max-width: 767px)');
