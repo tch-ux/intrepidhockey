@@ -549,8 +549,14 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 /* Desktop: underline slides in on hover */
 .hero-scroll-link:hover::after { transform: scaleX(1); }
 
-/* Mobile: no underline */
+/* Mobile: original smaller size, no underline */
 @media (max-width: 880px) {
+  .hero-scroll-link {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    gap: 8px;
+  }
   .hero-scroll-link:hover::after { transform: scaleX(0); }
 }
 .hero-scroll-link svg { flex-shrink: 0; transition: transform 300ms ease; }
