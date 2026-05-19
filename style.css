@@ -876,6 +876,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   flex-direction: column;
   border-top: 1px solid var(--neutral-700);
   padding-left: 20px; /* space for rail */
+  align-self: start;  /* prevent grid-stretch beyond tab stack height */
 }
 /* Rail track */
 .process-stage-tabs::before {
