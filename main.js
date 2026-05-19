@@ -216,14 +216,17 @@
   /* Accordion toggle logic — single-open, smooth max-height */
   const accHeads  = [...accordion.querySelectorAll('.acc-head')];
   const accBodies = [...accordion.querySelectorAll('.acc-body')];
+  const accItems  = [...accordion.querySelectorAll('.acc-item')];
 
   function openAcc(idx) {
     accHeads[idx].setAttribute('aria-expanded', 'true');
     accBodies[idx].style.maxHeight = accBodies[idx].scrollHeight + 'px';
+    accItems[idx].classList.add('acc-item--open');
   }
   function closeAcc(idx) {
     accHeads[idx].setAttribute('aria-expanded', 'false');
     accBodies[idx].style.maxHeight = '0';
+    accItems[idx].classList.remove('acc-item--open');
   }
 
   accHeads.forEach((head, i) => {

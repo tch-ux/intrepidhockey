@@ -1155,6 +1155,55 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .acc-content .process-panel-num  { display: none; }
 .acc-content .process-panel-title { font-size: 38px; }
 
+/* ── Accordion expanded = teal (mobile only) ─────────────── */
+@media (max-width: 768px) {
+  /* Give items an explicit bg so the transition has a defined start value */
+  .acc-item {
+    background-color: var(--neutral-900);
+    transition: background-color 250ms ease-out,
+                border-color      250ms ease-out;
+  }
+
+  /* Expanded row — teal background */
+  .acc-item--open {
+    background-color: var(--teal-600);
+    border-top-color:    rgba(255,255,255,0.18);
+  }
+  .acc-item--open.acc-item:last-child {
+    border-bottom-color: rgba(255,255,255,0.18);
+  }
+
+  /* Step number + chevron — need 0,3,0 specificity to beat
+     .acc-head[aria-expanded="true"] .acc-num  (also 0,3,0, but ours comes later) */
+  .acc-item--open .acc-head .acc-num     { color: rgba(255,255,255,0.9);
+                                           transition: color 250ms ease-out; }
+  .acc-item--open .acc-head .acc-chevron { color: #fff;
+                                           transition: color 250ms ease-out,
+                                                       transform 300ms ease; }
+  /* Watermark icon — slightly more visible against teal */
+  .acc-item--open .acc-icon-wm svg       { opacity: 0.28; }
+
+  /* Smooth colour transitions on panel content */
+  .acc-content .process-panel-title .accent,
+  .acc-content .process-panel-desc,
+  .acc-content .process-panel-list li {
+    transition: color 250ms ease-out;
+  }
+  .acc-content .process-panel-list li::before {
+    transition: background-color 250ms ease-out;
+  }
+
+  /* Panel headline accent (italic teal → white; teal-on-teal = invisible) */
+  .acc-item--open .process-panel-title .accent { color: #fff; }
+
+  /* Body paragraph + bullet text */
+  .acc-item--open .process-panel-desc    { color: rgba(255,255,255,0.9); }
+  .acc-item--open .process-panel-list li { color: rgba(255,255,255,0.9); }
+
+  /* Bullet squares */
+  .acc-item--open .process-panel-list li::before { background-color: #fff; }
+}
+
 /* ── HONEST PATH ──────────────────────────────────────────── */
 .honest-path {
   padding: 120px 40px;
