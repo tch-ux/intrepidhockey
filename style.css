@@ -530,7 +530,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   font-size: 14px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--neutral-700);
+  color: var(--teal-600);
   text-decoration: none;
   position: relative;
   padding-bottom: 3px;
@@ -545,7 +545,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   transform-origin: left;
   transition: transform 200ms ease-out;
 }
-.hero-scroll-link:hover { color: var(--neutral-900); }
+.hero-scroll-link:hover { color: var(--teal-800); }
 .hero-scroll-link:hover::after { transform: scaleX(1); }
 .hero-scroll-link svg { flex-shrink: 0; transition: transform 300ms ease; }
 .hero-scroll-link:hover svg { transform: translateY(3px); }
