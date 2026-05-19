@@ -1164,10 +1164,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
                 border-color      250ms ease-out;
   }
 
-  /* Expanded row — teal background */
+  /* Expanded row — teal background, full-bleed */
   .acc-item--open {
     background-color: var(--teal-600);
     border-top-color:    rgba(255,255,255,0.18);
+    margin-inline: -20px;  /* pull bg to viewport edges (offsets .process 20px padding) */
+    padding-inline: 20px;  /* restore inner text clearance                              */
   }
   .acc-item--open.acc-item:last-child {
     border-bottom-color: rgba(255,255,255,0.18);
@@ -1202,6 +1204,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
   /* Bullet squares */
   .acc-item--open .process-panel-list li::before { background-color: #fff; }
+
+  /* Hide duplicate display headline (step name already in header row) */
+  .acc-content .process-panel-title { display: none; }
+
+  /* Breathing room between header row and body paragraph after headline removal */
+  .acc-content { padding-top: 20px; }
 }
 
 /* ── HONEST PATH ──────────────────────────────────────────── */
