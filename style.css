@@ -887,6 +887,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   background: rgba(77, 196, 204, 0.12); /* teal-300 @ ~12% */
 }
 /* Rail fill — driven by --rail-fill custom property */
+/* height is animated by JS spring physics — no CSS transition here */
 .process-stage-tabs::after {
   content: "";
   position: absolute;
@@ -894,7 +895,6 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   width: 2px;
   height: var(--rail-fill, 25%);
   background: var(--teal-300);
-  transition: height 400ms ease-in-out;
 }
 
 /* ── Individual tab ── */

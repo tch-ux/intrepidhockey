@@ -101,6 +101,36 @@
   let activeIdx = 0;
   let animating = false;
 
+  /* ── Rail spring physics ─────────────────────────────────── */
+  /* Underdamped spring (ζ ≈ 0.79) — fills with momentum and a
+     subtle overshoot so the bar feels like it has weight.
+     Picks up from current position mid-flight, so rapid tab
+     clicks chain naturally instead of jumping. */
+  const STIFFNESS = 160, DAMPING = 20;
+  const rail = { pos: 25, vel: 0, target: 25, rafId: null };
+
+  function tickRail() {
+    const dt  = 1 / 60;
+    const acc = -STIFFNESS * (rail.pos - rail.target) - DAMPING * rail.vel;
+    rail.vel += acc * dt;
+    rail.pos += rail.vel * dt;
+    stageTabs.style.setProperty('--rail-fill', rail.pos.toFixed(2) + '%');
+    if (Math.abs(rail.pos - rail.target) < 0.02 && Math.abs(rail.vel) < 0.02) {
+      rail.pos   = rail.target;
+      rail.vel   = 0;
+      rail.rafId = null;
+      stageTabs.style.setProperty('--rail-fill', rail.target + '%');
+    } else {
+      rail.rafId = requestAnimationFrame(tickRail);
+    }
+  }
+
+  function setRailFill(pct) {
+    if (!stageTabs) return;
+    rail.target = pct;
+    if (!rail.rafId) rail.rafId = requestAnimationFrame(tickRail);
+  }
+
   /* Initialise tabindex — active tab focusable, others not */
   tabs.forEach((tab, i) => tab.setAttribute('tabindex', i === 0 ? '0' : '-1'));
 
@@ -119,10 +149,8 @@
       tab.setAttribute('tabindex', on ? '0' : '-1');
     });
 
-    /* Progress rail */
-    if (stageTabs) {
-      stageTabs.style.setProperty('--rail-fill', ((index + 1) / tabs.length * 100) + '%');
-    }
+    /* Progress rail — spring-driven */
+    setRailFill((index + 1) / tabs.length * 100);
 
     /* Cross-fade panels */
     const prevPanel = panels[prevIdx];
@@ -166,8 +194,11 @@
     });
   });
 
-  /* Init rail at 25% (tab 01 active) */
-  if (stageTabs) stageTabs.style.setProperty('--rail-fill', '25%');
+  /* Init rail at 25% (tab 01 active) — instant, no spring */
+  if (stageTabs) {
+    rail.pos = 25;
+    stageTabs.style.setProperty('--rail-fill', '25%');
+  }
 
   /* ── MOBILE ACCORDION ────────────────────────────────────── */
   const stage = document.querySelector('.process-stage');
