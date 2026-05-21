@@ -1197,8 +1197,8 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
     transition: background-color 250ms ease-out;
   }
 
-  /* Panel headline accent (italic teal → white; teal-on-teal = invisible) */
-  .acc-item--open .process-panel-title .accent { color: #fff; }
+  /* Panel headline accent (teal → near-black on teal bg) */
+  .acc-item--open .process-panel-title .accent { color: var(--neutral-900); }
 
   /* Body paragraph + bullet text */
   .acc-item--open .process-panel-desc    { color: rgba(255,255,255,0.9); }
