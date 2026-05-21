@@ -251,14 +251,40 @@
 
   function openAcc(idx) {
     accHeads[idx].setAttribute('aria-expanded', 'true');
-    accBodies[idx].style.maxHeight = accBodies[idx].scrollHeight + 'px';
-    accItems[idx].classList.add('acc-item--open');
+    accItems[idx].classList.add('acc-item--open'); // class first → headline becomes display:block
+    // setTimeout lets the browser flush the class change to layout before we
+    // measure scrollHeight (same-tick reads return stale pre-class values).
+    setTimeout(() => {
+      if (accItems[idx].classList.contains('acc-item--open')) {
+        accBodies[idx].style.maxHeight = accBodies[idx].scrollHeight + 'px';
+      }
+    }, 0);
   }
+
   function closeAcc(idx) {
     accHeads[idx].setAttribute('aria-expanded', 'false');
-    accBodies[idx].style.maxHeight = '0';
+    const body = accBodies[idx];
+    // After the open animation finishes we set maxHeight:'none' (see transitionend
+    // below) so the CSS transition has nothing to animate from. Snap to a px
+    // value first, flush layout, then set 0 so the close transition runs.
+    if (!body.style.maxHeight || body.style.maxHeight === 'none') {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      body.getBoundingClientRect(); // force reflow
+    }
+    body.style.maxHeight = '0';
     accItems[idx].classList.remove('acc-item--open');
   }
+
+  // After the open animation completes, lift the max-height cap entirely so
+  // content is never clipped regardless of font metrics or dynamic resizing.
+  accBodies.forEach((body, i) => {
+    body.addEventListener('transitionend', e => {
+      if (e.propertyName !== 'max-height') return;
+      if (accItems[i].classList.contains('acc-item--open')) {
+        body.style.maxHeight = 'none';
+      }
+    });
+  });
 
   accHeads.forEach((head, i) => {
     head.addEventListener('click', () => {
@@ -268,8 +294,9 @@
     });
   });
 
-  /* Open first item once layout is available */
-  requestAnimationFrame(() => openAcc(0));
+  /* Open first item — wait for web fonts so scrollHeight uses real font metrics,
+     not the fallback-font estimate that was causing a ~60px undercount. */
+  document.fonts.ready.then(() => openAcc(0));
 })();
 
 /* ── STAT COUNTERS ─────────────────────────────────────────── */
