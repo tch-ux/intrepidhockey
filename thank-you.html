@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluation Submitted — Intrepid Hockey</title>
+  <meta name="description" content="Your player evaluation request has been received. We'll be in touch within 48 hours.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicons -->
+  <link rel="icon"             type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon"             type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="icon"             type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180"               href="assets/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://www.intrepid.sk/thank-you.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .thankyou-section {
+      min-height: calc(100vh - 80px);
+      background: var(--neutral-900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+    .thankyou-inner {
+      text-align: center;
+      max-width: 560px;
+    }
+    .thankyou-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2px solid var(--teal-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 40px;
+      color: var(--teal-400);
+    }
+    .thankyou-heading {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(44px, 8vw, 72px);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .thankyou-heading .accent {
+      color: var(--teal-400);
+      font-style: italic;
+    }
+    .thankyou-sub {
+      font-size: clamp(16px, 1.6vw, 18px);
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+    .thankyou-sub strong {
+      color: var(--white);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="Intrepid Hockey — home">
+        <img src="assets/logo-narrow.png" alt="" width="400" height="125">
+      </a>
+      <div class="nav-links">
+        <a href="index.html#services">The Plan</a>
+        <a href="index.html#process">The Playbook</a>
+        <a href="index.html#players">Pipeline</a>
+        <a href="index.html#contact">Connect</a>
+      </div>
+      <div class="nav-right">
+        <a href="index.html#evaluation" class="nav-cta">Start Your Evaluation</a>
+        <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <nav>
+      <a href="index.html#services">The Plan</a>
+      <a href="index.html#process">The Playbook</a>
+      <a href="index.html#players">Pipeline</a>
+      <a href="index.html#contact">Connect</a>
+      <a href="index.html#evaluation" class="btn btn-ghost">
+        Start Your Evaluation
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+      </a>
+    </nav>
+  </div>
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+
+  <main>
+    <section class="thankyou-section" aria-labelledby="thankyou-heading">
+      <div class="thankyou-inner">
+
+        <!-- Checkmark icon -->
+        <div class="thankyou-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+
+        <h1 class="thankyou-heading" id="thankyou-heading">
+          Evaluation<br><span class="accent">Submitted.</span>
+        </h1>
+
+        <p class="thankyou-sub">
+          We've received your player's details and will review them carefully.<br>
+          Expect a response <strong>within 48 hours.</strong>
+        </p>
+
+        <a href="index.html" class="btn btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="11 18 5 12 11 6"/>
+          </svg>
+          <span>Back to home</span>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ── FOOTER ──────────────────────────────────────────── -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo-full.png" alt="Intrepid Hockey" loading="lazy">
+      </div>
+      <div class="footer-meta">
+        <a href="mailto:hello@intrepid.sk">hello@intrepid.sk</a>
+        <a href="tel:+421905740203">EU &nbsp;+421 905 740 203</a>
+        <a href="tel:+14236765273">US/CAN &nbsp;+1 423 676 5273</a>
+        <a href="https://www.instagram.com/intrepidhockey/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Intrepid Hockey. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html" class="footer-privacy-link">Privacy Policy</a></span>
+      <span>Built for players who don't back down.</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
