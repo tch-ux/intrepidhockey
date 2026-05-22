@@ -72,6 +72,16 @@ html, body {
 body { cursor: none; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: none; border: none; background: none; }
+
+/* ── GLOBAL FOCUS STYLES ──────────────────────────────────── */
+/* Visible ring for keyboard navigation on all interactive elements.
+   Component-level :focus-visible rules override this where needed. */
+:focus-visible {
+  outline: 2px solid var(--teal-400);
+  outline-offset: 3px;
+}
+/* Suppress default outline on mouse/touch clicks */
+:focus:not(:focus-visible) { outline: none; }
 img { display: block; max-width: 100%; }
 ul { list-style: none; }
 
