@@ -1003,7 +1003,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   position: relative;
   z-index: 2;
 }
-.process-panel-title .accent { color: var(--teal-300); font-style: italic; }
+.process-panel-title .accent { color: var(--teal-300); }
 .process-panel-desc {
   max-width: 460px;
   font-size: 17px;
