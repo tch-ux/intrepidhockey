@@ -1759,10 +1759,13 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   color: var(--neutral-400);
   margin-top: 20px;
 }
-/* Line break inside cta-attr: hidden on desktop, visible on mobile */
-.cta-attr br { display: none; }
+/* Desktop: separator dot visible, line break hidden */
+.cta-attr-sep   { display: inline; }
+.cta-attr-break { display: none; }
+/* Mobile: hide the dot, show the line break instead */
 @media (max-width: 768px) {
-  .cta-attr br { display: inline; }
+  .cta-attr-sep   { display: none; }
+  .cta-attr-break { display: inline; }
 }
 
 /* Context paragraph */
