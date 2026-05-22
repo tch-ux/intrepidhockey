@@ -710,22 +710,22 @@
           <div class="eval-row">
             <div class="eval-field">
               <label for="player-first">Player first name <span class="eval-req">*</span></label>
-              <input id="player-first" type="text" name="player_first" placeholder="e.g. Jakub" required>
+              <input id="player-first" type="text" name="player_first" placeholder="e.g. Jakub" required aria-required="true">
             </div>
             <div class="eval-field">
               <label for="player-last">Player last name <span class="eval-req">*</span></label>
-              <input id="player-last" type="text" name="player_last" placeholder="e.g. Novák" required>
+              <input id="player-last" type="text" name="player_last" placeholder="e.g. Novák" required aria-required="true">
             </div>
           </div>
 
           <div class="eval-row">
             <div class="eval-field">
               <label for="birth-year">Birth year <span class="eval-req">*</span></label>
-              <input id="birth-year" type="number" name="birth_year" placeholder="e.g. 2009" min="2000" max="2015" required>
+              <input id="birth-year" type="number" name="birth_year" placeholder="e.g. 2009" min="2000" max="2015" required aria-required="true">
             </div>
             <div class="eval-field">
               <label for="position">Position <span class="eval-req">*</span></label>
-              <select id="position" name="position" required>
+              <select id="position" name="position" required aria-required="true">
                 <option value="" disabled selected>Select position</option>
                 <option value="Forward (F)">Forward (F)</option>
                 <option value="Defense (D)">Defense (D)</option>
@@ -737,22 +737,22 @@
           <div class="eval-row">
             <div class="eval-field">
               <label for="current-team">Current team <span class="eval-req">*</span></label>
-              <input id="current-team" type="text" name="current_team" placeholder="e.g. HC Slovan U16" required>
+              <input id="current-team" type="text" name="current_team" placeholder="e.g. HC Slovan U16" required aria-required="true">
             </div>
             <div class="eval-field">
               <label for="phone">Phone <span class="eval-req">*</span></label>
-              <input id="phone" type="tel" name="phone" placeholder="e.g. +421 905 123 456" required>
+              <input id="phone" type="tel" name="phone" placeholder="e.g. +421 905 123 456" required aria-required="true">
             </div>
           </div>
 
           <div class="eval-row">
             <div class="eval-field">
               <label for="parent-name">Parent / Guardian name <span class="eval-req">*</span></label>
-              <input id="parent-name" type="text" name="parent_name" placeholder="e.g. Martin Novák" required>
+              <input id="parent-name" type="text" name="parent_name" placeholder="e.g. Martin Novák" required aria-required="true">
             </div>
             <div class="eval-field">
               <label for="email">Email address <span class="eval-req">*</span></label>
-              <input id="email" type="email" name="email" placeholder="e.g. martin@email.com" required>
+              <input id="email" type="email" name="email" placeholder="e.g. martin@email.com" required aria-required="true">
             </div>
           </div>
 
@@ -772,7 +772,7 @@
 
           <div class="eval-consent-wrap">
             <label class="eval-consent-label">
-              <input type="checkbox" id="gdpr-consent" name="gdpr_consent" class="eval-consent-cb" required>
+              <input type="checkbox" id="gdpr-consent" name="gdpr_consent" class="eval-consent-cb" required aria-required="true">
               <span>I agree to the processing of the submitted personal data for the purpose of player evaluation and consulting, in accordance with the <a href="privacy-policy.html" class="eval-consent-link">Privacy Policy</a>. I understand I can withdraw this consent at any time.</span>
             </label>
             <p class="eval-consent-error" id="consent-error" aria-live="polite" hidden>Consent is required to submit the evaluation.</p>
