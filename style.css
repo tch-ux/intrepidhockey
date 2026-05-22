@@ -1199,10 +1199,14 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
   /* Accent slant via transform — keeps upright Barlow Condensed metrics so
      both parts render at an identical optical size. font-style:italic loads
-     a different font-face variant with smaller cap-height; skewX avoids that. */
+     a different font-face variant with smaller cap-height; skewX avoids that.
+     font-size:1.2em compensates for the optical shrinkage caused by skewX
+     angling the strokes and the irradiation effect (white solid blooms larger
+     than near-black accent on the teal background). */
   .acc-content .process-panel-title .accent {
     display: inline-block;
     transform: skewX(-10deg);
+    font-size: 1.2em;
   }
 
   /* Panel headline accent (teal → near-black on teal bg) */
