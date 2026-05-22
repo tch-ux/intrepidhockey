@@ -1759,6 +1759,11 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   color: var(--neutral-400);
   margin-top: 20px;
 }
+/* Line break inside cta-attr: hidden on desktop, visible on mobile */
+.cta-attr br { display: none; }
+@media (max-width: 768px) {
+  .cta-attr br { display: inline; }
+}
 
 /* Context paragraph */
 .cta-context {
