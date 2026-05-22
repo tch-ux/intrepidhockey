@@ -1197,16 +1197,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
     transition: background-color 250ms ease-out;
   }
 
-  /* Accent slant + size compensation via transform only — font-size must stay
-     at 1em so the inline-block baseline stays locked to the solid text's
-     baseline. scale(1.08) visually enlarges the accent to compensate for
-     the irradiation effect (white solid blooms larger than near-black) and
-     skewX angling the strokes. transform-origin: left bottom keeps the
-     scaling pivot at the baseline corner so caps grow upward, not downward. */
+  /* True italic keeps the accent as an inline element — no display:inline-block,
+     no transform, no baseline shift. Barlow Condensed Italic is loaded via the
+     Google Fonts URL (ital axis included) so the browser uses the real designed
+     italic rather than synthesising a slant or falling back to system sans-serif. */
   .acc-content .process-panel-title .accent {
-    display: inline-block;
-    transform: skewX(-10deg) scale(1.08);
-    transform-origin: left bottom;
+    font-style: italic;
   }
 
   /* Panel headline accent (teal → near-black on teal bg) */
