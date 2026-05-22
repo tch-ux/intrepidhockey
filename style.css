@@ -1197,6 +1197,13 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
     transition: background-color 250ms ease-out;
   }
 
+  /* Restore italic on accent + compensate for Barlow Condensed italic's
+     smaller optical size — brings italic part level with the upright part */
+  .acc-content .process-panel-title .accent {
+    font-style: italic;
+    font-size: 1.08em; /* ~41px vs 38px upright — closes the optical gap */
+  }
+
   /* Panel headline accent (teal → near-black on teal bg) */
   .acc-item--open .process-panel-title .accent { color: var(--neutral-900); }
 
