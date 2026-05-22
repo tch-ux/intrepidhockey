@@ -386,6 +386,32 @@
   }, { passive: true });
 })();
 
+/* ── BACK TO TOP (mobile only) ─────────────────────────────── */
+(function () {
+  /* Only run on mobile — avoids an unnecessary scroll listener on desktop */
+  if (!window.matchMedia('(max-width: 768px)').matches) return;
+
+  const btn = document.querySelector('.back-to-top');
+  if (!btn) return;
+
+  const THRESHOLD = 300;
+
+  function setVisible(visible) {
+    btn.classList.toggle('is-visible', visible);
+    btn.setAttribute('aria-hidden', visible ? 'false' : 'true');
+    btn.setAttribute('tabindex',    visible ? '0'     : '-1');
+  }
+
+  window.addEventListener('scroll', () => {
+    setVisible(window.scrollY > THRESHOLD);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+  });
+})();
+
 /* ── SERVICE CARD TAP STATE (iOS Safari :hover fix) ────────── */
 (function () {
   /* Only needed on touch devices — desktop :hover works fine */

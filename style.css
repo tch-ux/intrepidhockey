@@ -2368,6 +2368,72 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .reveal-stagger.in > *:nth-child(5) { transition-delay: 0.32s; }
 .reveal-stagger.in > *:nth-child(6) { transition-delay: 0.40s; }
 
+/* ── BACK TO TOP ──────────────────────────────────────────── */
+/* Hidden on desktop — display:none removes it from layout and interaction */
+.back-to-top { display: none; }
+
+@media (max-width: 768px) {
+  .back-to-top {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    z-index: 100;
+
+    /* Appearance */
+    background: rgba(0, 0, 0, 0.55);
+    border: 1.5px solid var(--teal-400);
+    color: var(--teal-400);
+    cursor: pointer;
+    padding: 0;
+
+    /* Hidden state */
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity 300ms ease-out, transform 300ms ease-out,
+                border-width 150ms ease-out;
+  }
+
+  .back-to-top.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Arrow icon inside */
+  .back-to-top svg {
+    transition: transform 150ms ease-out;
+    flex-shrink: 0;
+  }
+
+  /* Hover — arrow nudges up, border thickens */
+  .back-to-top:hover {
+    border-width: 2px;
+  }
+  .back-to-top:hover svg {
+    transform: translateY(-3px);
+  }
+
+  /* Active / press — scale down for tactile feedback */
+  .back-to-top:active {
+    transform: scale(0.93);
+    transition: transform 100ms ease-in;
+  }
+
+  /* Focus — border already communicates focus; suppress default outline */
+  .back-to-top:focus-visible {
+    outline: none;
+    border-width: 2px;
+  }
+}
+
 /* ── REDUCED MOTION ───────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
