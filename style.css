@@ -2126,10 +2126,10 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   gap: 6px;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.6);
   line-height: 1.4;
 }
 .fv-credential-sep { color: rgba(255,255,255,0.18); }
