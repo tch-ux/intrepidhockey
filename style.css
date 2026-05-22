@@ -1203,6 +1203,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
      italic rather than synthesising a slant or falling back to system sans-serif. */
   .acc-content .process-panel-title .accent {
     font-style: italic;
+    font-size: 38px;
   }
 
   /* Panel headline accent (teal → near-black on teal bg) */
@@ -1215,8 +1216,9 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   /* Bullet squares */
   .acc-item--open .process-panel-list li::before { background-color: #fff; }
 
-  /* Collapsed: large headline hidden (step name shown in header row) */
-  .acc-content .process-panel-title { display: none; }
+  /* Collapsed: large headline hidden; solid-text size reduced to 30px (accent
+     overrides back to 38px above, giving the smaller-solid / larger-accent look) */
+  .acc-content .process-panel-title { display: none; font-size: 30px; }
 
   /* Expanded: large headline shown, header-row step name hidden */
   .acc-item--open .acc-content .process-panel-title { display: block; }
