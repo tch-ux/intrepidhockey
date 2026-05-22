@@ -2199,25 +2199,6 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 .endorse-heading-accent { color: var(--teal-400); font-style: italic; }
 
-/* Header (legacy) */
-.endorse-label {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 13px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--white);
-}
-.endorse-sublabel {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--teal-400);
-  margin-top: 5px;
-}
-
 /* Quote */
 .endorse-quote { margin-top: 0; }
 .endorse-qmark {
