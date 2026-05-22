@@ -1989,7 +1989,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   margin-top: 16px;
 }
 /* Match button colour to the "EVALUATION." accent (teal-400) */
-.eval-submit .btn-primary { background: var(--teal-400); }
+#eval-submit-btn { background: var(--teal-400); }
 
 /* Disabled state while consent unchecked */
 .eval-submit .btn-primary:disabled {
