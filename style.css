@@ -37,6 +37,7 @@
   --teal-50:  #e8f7f8;
 
   --neutral-900: #111111;
+  --neutral-850: #1a1a1a;
   --neutral-800: #222222;
   --neutral-700: #3a3a3a;
   --neutral-600: #555555;
@@ -47,6 +48,7 @@
   --neutral-100: #f0f0f0;
   --neutral-50:  #f8f8f8;
   --white:       #ffffff;
+  --error:       #ff6b6b;
 
   --font-display: 'Barlow Condensed', sans-serif;
   --font-body:    'Barlow', sans-serif;
@@ -1250,7 +1252,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 /* ── HONEST PATH ──────────────────────────────────────────── */
 .honest-path {
   padding: 120px 40px;
-  background: #00a8b3;
+  background: var(--teal-400);
 }
 .honest-path-inner {
   max-width: 900px;
@@ -1995,7 +1997,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 .eval-consent-error {
   font-size: 12px;
-  color: #ff6b6b;
+  color: var(--error);
   margin: 0;
 }
 
@@ -2039,7 +2041,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
 /* ── FAMILY VERDICT ──────────────────────────────────────── */
 .family-verdict {
-  background: #1a1a1a;
+  background: var(--neutral-850);
   padding: 100px 40px;
 }
 .fv-inner {
@@ -2169,7 +2171,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
 /* ── ENDORSEMENT ─────────────────────────────────────────── */
 .endorse {
-  background: #1a1a1a;
+  background: var(--neutral-850);
   padding: 100px 40px;
 }
 .endorse-inner {
