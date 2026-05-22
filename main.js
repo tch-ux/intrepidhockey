@@ -221,7 +221,7 @@
     const item = document.createElement('div');
     item.className = 'acc-item';
     item.innerHTML =
-      `<button class="acc-head" aria-expanded="${i === 0 ? 'true' : 'false'}"
+      `<button class="acc-head" aria-expanded="false"
                aria-controls="acc-body-${i}">
         <span class="acc-num">${num}</span>
         <span class="acc-label">${label}</span>
