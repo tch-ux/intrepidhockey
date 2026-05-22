@@ -1220,8 +1220,13 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
      overrides back to 38px above, giving the smaller-solid / larger-accent look) */
   .acc-content .process-panel-title { display: none; font-size: 34px; }
 
-  /* Expanded: large headline shown, header-row step name hidden */
-  .acc-item--open .acc-content .process-panel-title { display: block; }
+  /* Expanded: large headline shown, header-row step name hidden.
+     Flex keeps the two different-sized text pieces centred on the same axis. */
+  .acc-item--open .acc-content .process-panel-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
   .acc-item--open .acc-head .acc-label              { display: none; }
 
   /* Breathing room: header row → large headline → body paragraph */
