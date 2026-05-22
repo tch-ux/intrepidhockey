@@ -1218,7 +1218,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
   /* Collapsed: large headline hidden; solid-text size reduced to 30px (accent
      overrides back to 38px above, giving the smaller-solid / larger-accent look) */
-  .acc-content .process-panel-title { display: none; font-size: 30px; }
+  .acc-content .process-panel-title { display: none; font-size: 34px; }
 
   /* Expanded: large headline shown, header-row step name hidden */
   .acc-item--open .acc-content .process-panel-title { display: block; }
