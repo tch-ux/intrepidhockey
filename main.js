@@ -221,7 +221,7 @@
     const item = document.createElement('div');
     item.className = 'acc-item';
     item.innerHTML =
-      `<button class="acc-head" aria-expanded="false"
+      `<button class="acc-head" id="acc-head-${i}" aria-expanded="false"
                aria-controls="acc-body-${i}">
         <span class="acc-num">${num}</span>
         <span class="acc-label">${label}</span>
@@ -232,7 +232,7 @@
           <polyline points="6 9 12 15 18 9"/>
         </svg>
       </button>
-      <div class="acc-body" id="acc-body-${i}" role="region">
+      <div class="acc-body" id="acc-body-${i}" role="region" aria-labelledby="acc-head-${i}">
         <div class="acc-content">
           ${svgEl  ? svgEl.outerHTML   : ''}
           <h3 class="process-panel-title">${titleEl ? titleEl.innerHTML   : ''}</h3>
