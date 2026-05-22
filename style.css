@@ -1197,11 +1197,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
     transition: background-color 250ms ease-out;
   }
 
-  /* Restore italic on accent + compensate for Barlow Condensed italic's
-     smaller optical size — brings italic part level with the upright part */
+  /* Accent slant via transform — keeps upright Barlow Condensed metrics so
+     both parts render at an identical optical size. font-style:italic loads
+     a different font-face variant with smaller cap-height; skewX avoids that. */
   .acc-content .process-panel-title .accent {
-    font-style: italic;
-    font-size: 1.08em; /* ~41px vs 38px upright — closes the optical gap */
+    display: inline-block;
+    transform: skewX(-10deg);
   }
 
   /* Panel headline accent (teal → near-black on teal bg) */
