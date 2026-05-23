@@ -2182,11 +2182,21 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   align-items: start;
 }
 
-/* Left column — identity panel, no photo */
+/* Left column — identity panel */
 .endorse-person {
   display: flex;
   flex-direction: column;
-  padding-top: 8px;
+}
+.endorse-avatar {
+  width: 100%;
+  height: 120px;          /* matches ~2-line heading height on the right */
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 20px;
+  filter: grayscale(20%) contrast(1.05);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 .endorse-name {
   font-family: var(--font-display);
@@ -2268,14 +2278,13 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
 @media (max-width: 860px) {
   .endorse-inner { grid-template-columns: 1fr; gap: 48px; }
-  .endorse-person { flex-direction: row; align-items: flex-start; gap: 24px; }
-  .endorse-avatar { width: 110px; height: 110px; aspect-ratio: auto; flex-shrink: 0; margin-bottom: 0; }
-  .endorse-id { flex: 1; }
+  .endorse-person { flex-direction: row; align-items: flex-start; gap: 20px; }
+  .endorse-avatar { width: 90px; height: 90px; flex-shrink: 0; margin-bottom: 0; }
 }
 @media (max-width: 640px) {
   .endorse { padding: 72px 24px; }
   .endorse-person { flex-direction: column; }
-  .endorse-avatar { width: 90px; height: 90px; }
+  .endorse-avatar { width: 100%; height: 200px; }
   .endorse-quote { padding-left: 18px; }
 }
 
