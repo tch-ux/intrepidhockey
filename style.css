@@ -2189,7 +2189,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 .endorse-avatar {
   width: 100%;
-  height: 120px;          /* matches ~2-line heading height on the right */
+  height: clamp(74px, 9.2vw, 125px); /* mirrors heading: clamp(40,5vw,68) × 0.92 × 2 lines */
   object-fit: cover;
   object-position: top center;
   border-radius: 4px;
