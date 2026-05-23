@@ -2288,6 +2288,107 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .endorse-quote { padding-left: 18px; }
 }
 
+/* ── ENDORSEMENT VERSION B (comparison) ─────────────────── */
+.endorse-b {
+  background: var(--neutral-900);
+  padding: 100px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.endorse-b-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.endorse-b-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Heading */
+.endorse-b-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0 0 44px;
+}
+.endorse-b-accent { color: var(--teal-400); font-style: italic; }
+
+/* Quote — the hero of this version */
+.endorse-b-quote {
+  margin: 0 0 48px;
+}
+.endorse-b-quote p {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(22px, 2.8vw, 34px);
+  line-height: 1.42;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.01em;
+}
+
+/* Attribution — small photo beside name + credentials */
+.endorse-b-attr {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.endorse-b-photo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(30%) contrast(1.05);
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.endorse-b-id { flex: 1; }
+.endorse-b-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.endorse-b-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.endorse-b-role {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.3;
+}
+.endorse-b-logo {
+  height: 18px;
+  width: auto;
+  max-width: 34px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(8) opacity(0.3);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .endorse-b { padding: 72px 24px; }
+  .endorse-b-attr { flex-wrap: wrap; }
+}
+
 /* ── FOOTER ───────────────────────────────────────────────── */
 .footer {
   background: var(--teal-600);
