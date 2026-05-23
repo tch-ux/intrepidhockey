@@ -2188,8 +2188,10 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   flex-direction: column;
 }
 .endorse-avatar {
-  width: 100%;
-  height: auto;
+  height: clamp(74px, 9.2vw, 125px); /* matches heading height */
+  width: auto;
+  aspect-ratio: 464 / 500;            /* exact pixel ratio of scott.webp */
+  object-fit: cover;
   border-radius: 4px;
   display: block;
   margin-bottom: 20px;
@@ -2277,12 +2279,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 @media (max-width: 860px) {
   .endorse-inner { grid-template-columns: 1fr; gap: 48px; }
   .endorse-person { flex-direction: row; align-items: flex-start; gap: 20px; }
-  .endorse-avatar { width: 90px; flex-shrink: 0; margin-bottom: 0; }
+  .endorse-avatar { height: 90px; flex-shrink: 0; margin-bottom: 0; }
 }
 @media (max-width: 640px) {
   .endorse { padding: 72px 24px; }
   .endorse-person { flex-direction: column; }
-  .endorse-avatar { width: 100%; }
+  .endorse-avatar { height: 160px; }
   .endorse-quote { padding-left: 18px; }
 }
 
