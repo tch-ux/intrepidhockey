@@ -418,7 +418,6 @@
 
   const THRESHOLD = 300;
   const mql = window.matchMedia('(max-width: 768px)');
-  let footerInView = false;
 
   function setVisible(visible) {
     btn.classList.toggle('is-visible', visible);
@@ -427,15 +426,9 @@
   }
 
   function update() {
-    setVisible(window.scrollY > THRESHOLD && !footerInView);
-  }
-
-  /* Hide button whenever footer enters the viewport — prevents overlap */
-  if (footer) {
-    new IntersectionObserver((entries) => {
-      footerInView = entries[0].isIntersecting;
-      update();
-    }, { threshold: 0 }).observe(footer);
+    /* Hide when past threshold AND footer is not yet in viewport */
+    const footerVisible = footer && footer.getBoundingClientRect().top < window.innerHeight;
+    setVisible(window.scrollY > THRESHOLD && !footerVisible);
   }
 
   function apply(e) {
