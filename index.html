@@ -52,10 +52,21 @@
   }
   </script>
 
-  <link rel="preload" href="assets/player-teal.png" as="image">
+  <link rel="preload" href="assets/player-teal.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="style.css">
+
+  <!-- No-JS fallback: keep content visible and cursor normal if scripts don't run -->
+  <noscript>
+    <style>
+      .reveal, .reveal-stagger > * { opacity: 1; transform: none; }
+      body { cursor: auto; }
+      .cursor-dot, .cursor-ring { display: none; }
+    </style>
+  </noscript>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Custom cursor (hidden on touch/mobile via CSS) -->
   <div class="cursor-dot" aria-hidden="true"></div>
@@ -86,7 +97,7 @@
 
   <!-- Mobile drawer -->
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <nav>
+    <nav aria-label="Mobile navigation">
       <a href="#services">The Plan</a>
       <a href="#process">The Playbook</a>
       <a href="#players">Pipeline</a>
@@ -95,7 +106,7 @@
   </div>
   <div class="mobile-nav-overlay" aria-hidden="true"></div>
 
-  <main>
+  <main id="main">
 
     <!-- ── HERO ────────────────────────────────────────────── -->
     <section class="hero" aria-labelledby="hero-heading">
@@ -186,7 +197,7 @@
         </div>
           </div><!-- /hero-text -->
           <div class="hero-player" id="hero-player" aria-hidden="true">
-            <img src="assets/player-teal.png" alt="">
+            <img src="assets/player-teal.webp" alt="">
           </div>
         </div><!-- /hero-main-row -->
       </div>
@@ -214,7 +225,7 @@
             <h3 class="svc-title">The Blueprint</h3>
             <p class="svc-desc">We build a personalized, long-term roadmap tailored to your hockey and academic goals. With pathways constantly evolving, we ensure every decision maximizes your future options and keeps your development moving forward.</p>
           </div>
-          <img class="svc-img svc-img-plan" src="assets/gameplan.png" alt="" loading="lazy">
+          <img class="svc-img svc-img-plan" src="assets/gameplan.webp" alt="" loading="lazy">
           <div class="svc-arrow" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </div>
@@ -226,7 +237,7 @@
             <h3 class="svc-title">The Icetime</h3>
             <p class="svc-desc">It's not just about playing; it's about playing where it counts. We guide you to the specific showcases, ID camps, and tournaments that give you the right ice time to prove your skills in front of the scouts and decision-makers that actually matter.</p>
           </div>
-          <img class="svc-img svc-img-icetime" src="assets/showcase.png" alt="" loading="lazy">
+          <img class="svc-img svc-img-icetime" src="assets/showcase.webp" alt="" loading="lazy">
           <div class="svc-arrow" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </div>
@@ -238,7 +249,7 @@
             <h3 class="svc-title">The Roster Spot</h3>
             <p class="svc-desc">We don't chase the flashiest teams; we chase your growth. We help you identify the specific AAA, Prep, or Junior roster spot that provides the ultimate environment for your long-term development.</p>
           </div>
-          <img class="svc-img svc-img-roster" src="assets/jersey.png" alt="" loading="lazy">
+          <img class="svc-img svc-img-roster" src="assets/jersey.webp" alt="" loading="lazy">
           <div class="svc-arrow" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </div>
@@ -454,7 +465,7 @@
           </blockquote>
 
           <div class="endorse-attr">
-            <img src="assets/scott.png" alt="Scott Harris" class="endorse-avatar" loading="lazy">
+            <img src="assets/scott.webp" alt="Scott Harris" class="endorse-avatar" loading="lazy">
             <div class="endorse-attr-body">
               <div class="endorse-name">Scott Harris</div>
               <div class="endorse-divider"></div>
@@ -739,7 +750,7 @@
 
           <div class="eval-consent-wrap">
             <label class="eval-consent-label">
-              <input type="checkbox" id="gdpr-consent" name="gdpr_consent" class="eval-consent-cb" required aria-required="true">
+              <input type="checkbox" id="gdpr-consent" name="gdpr_consent" class="eval-consent-cb" required aria-required="true" aria-describedby="consent-error">
               <span>I agree to the processing of the submitted personal data for the purpose of player evaluation and consulting, in accordance with the <a href="privacy-policy.html" class="eval-consent-link">Privacy Policy</a>. I understand I can withdraw this consent at any time.</span>
             </label>
             <p class="eval-consent-error" id="consent-error" aria-live="polite" hidden>Consent is required to submit the evaluation.</p>

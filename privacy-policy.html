@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Intrepid Hockey</title>
   <meta name="description" content="Privacy Policy for Intrepid Hockey — how we collect, use and protect your personal data.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://www.intrepid.sk/privacy-policy.html">
   <link rel="stylesheet" href="style.css">
   <style>
     /* ── Privacy Policy page — prose layout ──────────────────── */
@@ -113,8 +111,19 @@
       .pp-body { padding: 48px 24px 80px; }
     }
   </style>
+
+  <!-- No-JS fallback: keep content visible and cursor normal if scripts don't run -->
+  <noscript>
+    <style>
+      .reveal, .reveal-stagger > * { opacity: 1; transform: none; }
+      body { cursor: auto; }
+      .cursor-dot, .cursor-ring { display: none; }
+    </style>
+  </noscript>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Custom cursor -->
   <div class="cursor-dot" aria-hidden="true"></div>
@@ -146,7 +155,7 @@
 
   <!-- Mobile drawer -->
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <nav>
+    <nav aria-label="Mobile navigation">
       <a href="index.html#services">The Plan</a>
       <a href="index.html#process">The Playbook</a>
       <a href="index.html#players">Pipeline</a>
@@ -173,7 +182,7 @@
   </section>
 
   <!-- ── BODY ─────────────────────────────────────────────── -->
-  <main class="pp-body">
+  <main class="pp-body" id="main">
     <div class="pp-body-inner">
 
       <h2>1. Data Controller</h2>

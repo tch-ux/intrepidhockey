@@ -65,8 +65,19 @@
       color: var(--white);
     }
   </style>
+
+  <!-- No-JS fallback: keep content visible and cursor normal if scripts don't run -->
+  <noscript>
+    <style>
+      .reveal, .reveal-stagger > * { opacity: 1; transform: none; }
+      body { cursor: auto; }
+      .cursor-dot, .cursor-ring { display: none; }
+    </style>
+  </noscript>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Custom cursor -->
   <div class="cursor-dot" aria-hidden="true"></div>
@@ -94,7 +105,7 @@
   </header>
 
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <nav>
+    <nav aria-label="Mobile navigation">
       <a href="index.html#services">The Plan</a>
       <a href="index.html#process">The Playbook</a>
       <a href="index.html#players">Pipeline</a>
@@ -107,7 +118,7 @@
   </div>
   <div class="mobile-nav-overlay" aria-hidden="true"></div>
 
-  <main>
+  <main id="main">
     <section class="thankyou-section" aria-labelledby="thankyou-heading">
       <div class="thankyou-inner">
 
