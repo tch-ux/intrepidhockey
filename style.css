@@ -3,25 +3,41 @@
    Design tokens · Layout · Components · Animations · Responsive
    ============================================================ */
 
-/* ── SELF-HOSTED BARLOW ───────────────────────────────────── */
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Thin.ttf') format('truetype'); font-weight:100; font-style:normal; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-ThinItalic.ttf') format('truetype'); font-weight:100; font-style:italic; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-ExtraLight.ttf') format('truetype'); font-weight:200; font-style:normal; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-ExtraLightItalic.ttf') format('truetype'); font-weight:200; font-style:italic; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Light.ttf') format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-LightItalic.ttf') format('truetype'); font-weight:300; font-style:italic; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Italic.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-MediumItalic.ttf') format('truetype'); font-weight:500; font-style:italic; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-SemiBoldItalic.ttf') format('truetype'); font-weight:600; font-style:italic; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-BoldItalic.ttf') format('truetype'); font-weight:700; font-style:italic; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-ExtraBold.ttf') format('truetype'); font-weight:800; font-style:normal; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-ExtraBoldItalic.ttf') format('truetype'); font-weight:800; font-style:italic; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Black.ttf') format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
-@font-face { font-family:'Barlow'; src:url('fonts/Barlow-BlackItalic.ttf') format('truetype'); font-weight:900; font-style:italic; font-display:swap; }
+/* ── SELF-HOSTED BARLOW CONDENSED (display/headings) ─────── */
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-SemiBold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-ExtraBold.woff2') format('woff2'); font-weight:800; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-Black.woff2') format('woff2'); font-weight:900; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-LightItalic.woff2') format('woff2'); font-weight:300; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-Italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-MediumItalic.woff2') format('woff2'); font-weight:500; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-SemiBoldItalic.woff2') format('woff2'); font-weight:600; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-BoldItalic.woff2') format('woff2'); font-weight:700; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-ExtraBoldItalic.woff2') format('woff2'); font-weight:800; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow Condensed'; src:url('fonts/BarlowCondensed-BlackItalic.woff2') format('woff2'); font-weight:900; font-style:italic; font-display:swap; }
+
+/* ── SELF-HOSTED BARLOW (body text) ──────────────────────── */
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Thin.woff2') format('woff2'); font-weight:100; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-ThinItalic.woff2') format('woff2'); font-weight:100; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-ExtraLight.woff2') format('woff2'); font-weight:200; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-ExtraLightItalic.woff2') format('woff2'); font-weight:200; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-LightItalic.woff2') format('woff2'); font-weight:300; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-MediumItalic.woff2') format('woff2'); font-weight:500; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-SemiBold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-SemiBoldItalic.woff2') format('woff2'); font-weight:600; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-BoldItalic.woff2') format('woff2'); font-weight:700; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-ExtraBold.woff2') format('woff2'); font-weight:800; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-ExtraBoldItalic.woff2') format('woff2'); font-weight:800; font-style:italic; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-Black.woff2') format('woff2'); font-weight:900; font-style:normal; font-display:swap; }
+@font-face { font-family:'Barlow'; src:url('fonts/Barlow-BlackItalic.woff2') format('woff2'); font-weight:900; font-style:italic; font-display:swap; }
 
 /* ── DESIGN TOKENS ────────────────────────────────────────── */
 :root {
@@ -442,7 +458,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .hero-manifesto .mf-arrow svg polyline {
   stroke-dasharray: 260;
   stroke-dashoffset: 260;
-  animation: drawPath 1.4s cubic-bezier(.8,0,.2,1) 0.6s forwards;
+  animation: drawPath 1.4s cubic-bezier(.8,0,.2,1) 2.6s forwards;
 }
 @keyframes drawPath { to { stroke-dashoffset: 0; } }
 
@@ -458,7 +474,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   color: var(--neutral-300);
   font-style: italic;
   display: inline-block;
-  animation: swapOut 1.1s cubic-bezier(.7,0,.3,1) 0.5s forwards;
+  animation: swapOut 1.1s cubic-bezier(.7,0,.3,1) 2.5s forwards;
   pointer-events: none;
   z-index: 2;
 }
@@ -470,7 +486,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   background: var(--teal-600);
   transform: scaleX(0);
   transform-origin: left center;
-  animation: strikeIn 0.5s cubic-bezier(.7,0,.3,1) 0.45s forwards;
+  animation: strikeIn 0.5s cubic-bezier(.7,0,.3,1) 2.45s forwards;
 }
 @keyframes strikeIn { to { transform: scaleX(1); } }
 @keyframes swapOut {
@@ -503,9 +519,9 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   opacity: 0;
   animation: ringPulse 2.8s cubic-bezier(.16,1,.3,1) infinite;
 }
-.r1 { width: 1.1em; height: 1.1em; animation-delay: 1.2s;  }
-.r2 { width: 1.6em; height: 1.6em; animation-delay: 1.55s; }
-.r3 { width: 2.1em; height: 2.1em; animation-delay: 1.9s;  }
+.r1 { width: 1.1em; height: 1.1em; animation-delay: 3.2s;  }
+.r2 { width: 1.6em; height: 1.6em; animation-delay: 3.55s; }
+.r3 { width: 2.1em; height: 2.1em; animation-delay: 3.9s;  }
 @keyframes ringPulse {
   0%   { opacity: 0; transform: translate(-50%,-50%) scale(0.4); }
   18%  { opacity: 0.5; }
@@ -2141,18 +2157,16 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 .fv-credentials {
   margin-top: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 13px;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.6);
-  line-height: 1.4;
+  line-height: 1.6;
 }
-.fv-credential-sep { color: rgba(255,255,255,0.18); }
+.fv-credentials span { display: inline; }
+.fv-credential-sep { color: rgba(255,255,255,0.18); padding: 0 3px; }
 
 /* Separator between family-verdict and pro-verdict */
 .family-verdict + .endorse {

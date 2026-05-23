@@ -42,13 +42,14 @@
   const hamburger = document.querySelector('.nav-hamburger');
   const drawer    = document.querySelector('.mobile-nav');
   const overlay   = document.querySelector('.mobile-nav-overlay');
-  if (!hamburger || !drawer) return;
+  if (!hamburger || !drawer || !overlay) return;
 
   function open() {
     hamburger.classList.add('open');
     drawer.classList.add('open');
     overlay.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close navigation menu');
     drawer.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
@@ -58,6 +59,7 @@
     drawer.classList.remove('open');
     overlay.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open navigation menu');
     drawer.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
@@ -100,6 +102,7 @@
 
   let activeIdx = 0;
   let animating = false;
+  let animGen   = 0;   /* increments on every activate() call — stale timeouts bail when they see a newer gen */
 
   /* ── Rail spring physics ─────────────────────────────────── */
   /* Underdamped spring (ζ ≈ 0.79) — fills with momentum and a
@@ -155,20 +158,28 @@
     /* Cross-fade panels */
     const prevPanel = panels[prevIdx];
     const nextPanel = panels[index];
-    if (!prevPanel || prevIdx === index || animating) {
+    /* Cancel any in-flight animation so rapid clicks never get stuck */
+    animGen++;
+    panels.forEach(p => p.classList.remove('panel-fade-out', 'panel-fade-in'));
+    animating = false;
+
+    if (!prevPanel || prevIdx === index) {
       panels.forEach((p, i) => p.classList.toggle('hidden', i !== index));
       return;
     }
 
+    const myGen = animGen;
     animating = true;
     prevPanel.classList.add('panel-fade-out');
 
     setTimeout(() => {
+      if (animGen !== myGen) return;   /* a newer click happened — bail */
       prevPanel.classList.add('hidden');
       prevPanel.classList.remove('panel-fade-out');
       nextPanel.classList.remove('hidden');
       nextPanel.classList.add('panel-fade-in');
       setTimeout(() => {
+        if (animGen !== myGen) return; /* a newer click happened — bail */
         nextPanel.classList.remove('panel-fade-in');
         animating = false;
       }, 200);
@@ -236,7 +247,7 @@
         <div class="acc-content">
           ${svgEl  ? svgEl.outerHTML   : ''}
           <h3 class="process-panel-title">${titleEl ? titleEl.innerHTML   : ''}</h3>
-          <p  class="process-panel-desc">${descEl  ? descEl.textContent  : ''}</p>
+          <p  class="process-panel-desc">${descEl  ? descEl.innerHTML   : ''}</p>
           <ul class="process-panel-list">${listEl  ? listEl.innerHTML    : ''}</ul>
         </div>
       </div>`;
@@ -294,9 +305,7 @@
     });
   });
 
-  /* Open first item — wait for web fonts so scrollHeight uses real font metrics,
-     not the fallback-font estimate that was causing a ~60px undercount. */
-  document.fonts.ready.then(() => openAcc(0));
+  /* All items start closed — user opens on demand */
 })();
 
 /* ── STAT COUNTERS ─────────────────────────────────────────── */
@@ -332,7 +341,7 @@
   const btn    = document.getElementById('eval-submit-btn');
   const errMsg = document.getElementById('consent-error');
   const form   = btn && btn.closest('form');
-  if (!cb || !btn || !form) return;
+  if (!cb || !btn || !form || !errMsg) return;
 
   function syncBtn() {
     btn.disabled = !cb.checked;
@@ -377,24 +386,37 @@
 (function () {
   const player = document.getElementById('hero-player');
   if (!player) return;
-  if (window.matchMedia('(max-width: 880px)').matches) return;
 
-  window.addEventListener('scroll', () => {
+  const mql = window.matchMedia('(max-width: 880px)');
+
+  function onScroll() {
     const y = window.scrollY;
     player.style.transform =
       `translate3d(${y * 0.05}px, ${y * 0.15}px, 0) scale(${1 + y * 0.0003})`;
-  }, { passive: true });
+  }
+
+  function apply(e) {
+    if (e.matches) {
+      /* Switched to / loaded on mobile — detach and reset */
+      window.removeEventListener('scroll', onScroll);
+      player.style.transform = '';
+    } else {
+      /* Switched to / loaded on desktop — attach */
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+  }
+
+  mql.addEventListener('change', apply);
+  apply(mql); /* run once on load to set initial state */
 })();
 
 /* ── BACK TO TOP (mobile only) ─────────────────────────────── */
 (function () {
-  /* Only run on mobile — avoids an unnecessary scroll listener on desktop */
-  if (!window.matchMedia('(max-width: 768px)').matches) return;
-
   const btn = document.querySelector('.back-to-top');
   if (!btn) return;
 
   const THRESHOLD = 300;
+  const mql = window.matchMedia('(max-width: 768px)');
 
   function setVisible(visible) {
     btn.classList.toggle('is-visible', visible);
@@ -402,14 +424,28 @@
     btn.setAttribute('tabindex',    visible ? '0'     : '-1');
   }
 
-  window.addEventListener('scroll', () => {
+  function onScroll() {
     setVisible(window.scrollY > THRESHOLD);
-  }, { passive: true });
+  }
+
+  function apply(e) {
+    if (e.matches) {
+      /* Switched to / loaded on mobile — attach scroll listener */
+      window.addEventListener('scroll', onScroll, { passive: true });
+    } else {
+      /* Switched to / loaded on desktop — detach and hide button */
+      window.removeEventListener('scroll', onScroll);
+      setVisible(false);
+    }
+  }
 
   btn.addEventListener('click', () => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
   });
+
+  mql.addEventListener('change', apply);
+  apply(mql); /* run once on load to set initial state */
 })();
 
 /* ── SERVICE CARD TAP STATE (iOS Safari :hover fix) ────────── */
@@ -567,6 +603,7 @@
     if (dragCurrentY >= DISMISS_THRESHOLD) {
       /* Crossed threshold — continue sliding down from current position */
       const card = activeCard;
+      sheet.classList.add('closing');   /* blocks taps + keeps visibility during slide-out */
       panel.style.transition    = 'transform 200ms ease-in';
       backdrop.style.transition = 'opacity 200ms ease-in';
       panel.style.transform     = 'translateY(100%)';
