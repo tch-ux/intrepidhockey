@@ -412,11 +412,13 @@
 
 /* ── BACK TO TOP (mobile only) ─────────────────────────────── */
 (function () {
-  const btn = document.querySelector('.back-to-top');
+  const btn    = document.querySelector('.back-to-top');
+  const footer = document.querySelector('footer');
   if (!btn) return;
 
   const THRESHOLD = 300;
   const mql = window.matchMedia('(max-width: 768px)');
+  let footerInView = false;
 
   function setVisible(visible) {
     btn.classList.toggle('is-visible', visible);
@@ -424,17 +426,25 @@
     btn.setAttribute('tabindex',    visible ? '0'     : '-1');
   }
 
-  function onScroll() {
-    setVisible(window.scrollY > THRESHOLD);
+  function update() {
+    setVisible(window.scrollY > THRESHOLD && !footerInView);
+  }
+
+  /* Hide button whenever footer enters the viewport — prevents overlap */
+  if (footer) {
+    new IntersectionObserver((entries) => {
+      footerInView = entries[0].isIntersecting;
+      update();
+    }, { threshold: 0 }).observe(footer);
   }
 
   function apply(e) {
     if (e.matches) {
       /* Switched to / loaded on mobile — attach scroll listener */
-      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('scroll', update, { passive: true });
     } else {
       /* Switched to / loaded on desktop — detach and hide button */
-      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('scroll', update);
       setVisible(false);
     }
   }
