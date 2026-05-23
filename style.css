@@ -2295,90 +2295,98 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 .endorse-b-inner {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
 }
-.endorse-b-content {
+
+/* Small label row — "FROM THE BENCH" as a minor eyebrow */
+.endorse-b-label {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
 }
-
-/* Heading */
-.endorse-b-heading {
+.endorse-b-label-line {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--teal-400);
+  flex-shrink: 0;
+}
+.endorse-b-label-text {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(40px, 5.5vw, 72px);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--white);
-  margin: 0 0 44px;
+  color: var(--teal-400);
 }
-.endorse-b-accent { color: var(--teal-400); font-style: italic; }
 
-/* Quote — the hero of this version */
+/* The quote — full-width hero, large condensed italic */
 .endorse-b-quote {
-  margin: 0 0 48px;
+  margin: 0 0 52px;
 }
 .endorse-b-quote p {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(22px, 2.8vw, 34px);
-  line-height: 1.42;
-  color: rgba(255,255,255,0.9);
-  letter-spacing: 0.01em;
+  font-style: italic;
+  font-size: clamp(26px, 3.6vw, 48px);
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  color: var(--white);
 }
 
-/* Attribution — small photo beside name + credentials */
-.endorse-b-attr {
+/* Credentials bar — one tight horizontal strip */
+.endorse-b-bar {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding-top: 32px;
+  gap: 16px;
+  padding-top: 28px;
   border-top: 1px solid rgba(255,255,255,0.08);
 }
-.endorse-b-photo {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+/* Tiny square thumbnail — purely decorative context */
+.endorse-b-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
   object-fit: cover;
   object-position: top center;
-  filter: grayscale(30%) contrast(1.05);
+  filter: grayscale(40%) contrast(1.05) brightness(0.85);
   flex-shrink: 0;
-  border: 1px solid rgba(255,255,255,0.1);
+  opacity: 0.7;
 }
-.endorse-b-id { flex: 1; }
-.endorse-b-name {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 15px;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--white);
-  margin-bottom: 8px;
-  line-height: 1;
-}
-.endorse-b-roles {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.endorse-b-role {
+.endorse-b-bar-body {
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px 10px;
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 11px;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  line-height: 1.4;
+}
+.endorse-b-name {
+  font-weight: 900;
+  font-size: 13px;
+  color: var(--white);
+  letter-spacing: 0.08em;
+}
+.endorse-b-sep {
+  color: rgba(255,255,255,0.2);
+  font-weight: 400;
+}
+.endorse-b-cred {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   color: rgba(255,255,255,0.45);
-  line-height: 1.3;
 }
 .endorse-b-logo {
-  height: 18px;
+  height: 16px;
   width: auto;
-  max-width: 34px;
+  max-width: 30px;
   object-fit: contain;
   filter: grayscale(1) brightness(8) opacity(0.3);
   flex-shrink: 0;
@@ -2386,7 +2394,9 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
 @media (max-width: 640px) {
   .endorse-b { padding: 72px 24px; }
-  .endorse-b-attr { flex-wrap: wrap; }
+  .endorse-b-bar { flex-direction: column; align-items: flex-start; }
+  .endorse-b-bar-body { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .endorse-b-sep { display: none; }
 }
 
 /* ── FOOTER ───────────────────────────────────────────────── */
