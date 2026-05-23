@@ -2182,62 +2182,53 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   align-items: start;
 }
 
-/* Left column — person */
+/* Left column — identity panel, no photo */
 .endorse-person {
   display: flex;
   flex-direction: column;
+  padding-top: 8px;
 }
-.endorse-avatar {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 4px;
-  object-fit: cover;
-  object-position: top center;
-  filter: grayscale(20%) contrast(1.05);
-  display: block;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-.endorse-id { width: 100%; }
 .endorse-name {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 20px;
-  letter-spacing: 0.05em;
+  font-size: clamp(28px, 2.8vw, 38px);
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--white);
-  line-height: 1;
+  line-height: 0.95;
+  margin-bottom: 0;
 }
 .endorse-divider {
-  height: 1px;
-  background: rgba(255,255,255,0.1);
-  margin: 14px 0;
-  width: 100%;
+  height: 2px;
+  background: var(--teal-400);
+  margin: 18px 0 24px;
+  width: 40px;
 }
 .endorse-roles {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 .endorse-role {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 11px;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.5);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 .endorse-logo {
-  height: 20px;
+  height: 28px;
   width: auto;
-  max-width: 36px;
+  max-width: 52px;
   object-fit: contain;
-  filter: grayscale(1) brightness(8) opacity(0.35);
+  filter: grayscale(1) brightness(8) opacity(0.45);
   flex-shrink: 0;
+  display: block;
 }
 
 /* Right column — heading + quote */
@@ -2288,116 +2279,6 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .endorse-quote { padding-left: 18px; }
 }
 
-/* ── ENDORSEMENT VERSION B (comparison) ─────────────────── */
-.endorse-b {
-  background: var(--neutral-900);
-  padding: 100px 40px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-.endorse-b-inner {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-/* Small label row — "FROM THE BENCH" as a minor eyebrow */
-.endorse-b-label {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 40px;
-}
-.endorse-b-label-line {
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: var(--teal-400);
-  flex-shrink: 0;
-}
-.endorse-b-label-text {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--teal-400);
-}
-
-/* The quote — full-width hero, large condensed italic */
-.endorse-b-quote {
-  margin: 0 0 52px;
-}
-.endorse-b-quote p {
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(26px, 3.6vw, 48px);
-  line-height: 1.28;
-  letter-spacing: -0.01em;
-  color: var(--white);
-}
-
-/* Credentials bar — one tight horizontal strip */
-.endorse-b-bar {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding-top: 28px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-/* Tiny square thumbnail — purely decorative context */
-.endorse-b-thumb {
-  width: 40px;
-  height: 40px;
-  border-radius: 3px;
-  object-fit: cover;
-  object-position: top center;
-  filter: grayscale(40%) contrast(1.05) brightness(0.85);
-  flex-shrink: 0;
-  opacity: 0.7;
-}
-.endorse-b-bar-body {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1.4;
-}
-.endorse-b-name {
-  font-weight: 900;
-  font-size: 13px;
-  color: var(--white);
-  letter-spacing: 0.08em;
-}
-.endorse-b-sep {
-  color: rgba(255,255,255,0.2);
-  font-weight: 400;
-}
-.endorse-b-cred {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  color: rgba(255,255,255,0.45);
-}
-.endorse-b-logo {
-  height: 16px;
-  width: auto;
-  max-width: 30px;
-  object-fit: contain;
-  filter: grayscale(1) brightness(8) opacity(0.3);
-  flex-shrink: 0;
-}
-
-@media (max-width: 640px) {
-  .endorse-b { padding: 72px 24px; }
-  .endorse-b-bar { flex-direction: column; align-items: flex-start; }
-  .endorse-b-bar-body { flex-direction: column; align-items: flex-start; gap: 6px; }
-  .endorse-b-sep { display: none; }
-}
 
 /* ── FOOTER ───────────────────────────────────────────────── */
 .footer {
