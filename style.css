@@ -2040,7 +2040,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   grid-template-columns: 55fr 45fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "heading photo"
+    "heading heading"
     "quote   photo"
     "attr    photo";
   column-gap: 80px;
@@ -2081,11 +2081,11 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .fv-attr {
   grid-area: attr;
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 11px;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.5);
   margin: 0;
   padding-left: 28px;
 }
