@@ -2127,6 +2127,10 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .family-verdict { padding: 72px 24px; }
   .fv-quote { padding-left: 18px; }
 }
+@media (max-width: 768px) {
+  .family-verdict { padding-top: 48px; }
+  .fv-quote { margin-bottom: 18px; }
+}
 
 /* ── ENDORSEMENT ─────────────────────────────────────────── */
 .endorse {
