@@ -2287,13 +2287,14 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 @media (max-width: 640px) {
   .endorse { padding: 72px 24px; }
-  .endorse-person { flex-direction: column; }
+  .endorse-person { flex-direction: column; align-items: flex-start; }
   .endorse-avatar {
-    width: 100%;
-    max-width: 240px;     /* portrait-sized, won't dominate full-width */
-    height: auto;         /* natural 464:500 proportions, no crop */
+    width: 160px;           /* optical match to SCOTT HARRIS name at 28px */
+    max-width: none;        /* clear previous cap */
+    height: auto;           /* natural 464:500 ratio — full head visible */
+    object-fit: none;       /* redundant with height: auto */
     object-position: top center;
-    margin: 0 auto 20px;  /* centred below the quote */
+    margin: 0 0 20px;       /* left-aligned */
   }
   .endorse-quote { padding-left: 18px; }
 }
