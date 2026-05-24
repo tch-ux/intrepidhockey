@@ -2095,15 +2095,13 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   grid-area: photo;
   margin: 0;
   align-self: start;
+  background-color: var(--neutral-850);
 }
 .fv-photo img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 4px;
-  mix-blend-mode: multiply;
-  filter: grayscale(15%) contrast(1.05);
-  border: none;
 }
 
 /* No separator — section butts up against endorse */
