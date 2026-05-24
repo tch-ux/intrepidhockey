@@ -2289,13 +2289,15 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .endorse { padding: 72px 24px; }
   .endorse-person { flex-direction: column; align-items: flex-start; }
   .endorse-avatar {
-    width: 140px;            /* one player card at 375px: (295px − 16px gap) ÷ 2 */
+    width: 98px;             /* 140px − 30% */
     height: auto;            /* natural proportions — full image, no crop */
     object-fit: unset;
     object-position: unset;
     display: block;
-    margin: 0 0 20px;
+    margin: 0 0 12px;        /* photo → name */
   }
+  .endorse-divider { margin: 8px 0 12px; }   /* name → divider → credentials */
+  .endorse-roles   { gap: 8px; }             /* between credential rows */
   .endorse-quote { padding-left: 18px; }
 }
 
