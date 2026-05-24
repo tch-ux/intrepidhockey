@@ -2082,7 +2082,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   grid-area: attr;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 11px;
+  font-size: 15px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.5);
