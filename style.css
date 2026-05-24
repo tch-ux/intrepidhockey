@@ -2069,7 +2069,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .fv-quote p {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(18px, 1.8vw, 22px);
+  font-size: 17px;
   line-height: 1.75;
   color: rgba(255,255,255,0.82);
   font-style: italic;
