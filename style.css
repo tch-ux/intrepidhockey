@@ -2188,10 +2188,11 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   flex-direction: column;
 }
 .endorse-avatar {
-  height: clamp(74px, 9.2vw, 125px); /* matches heading height */
-  width: auto;
-  aspect-ratio: 464 / 500;            /* exact pixel ratio of scott.webp */
+  height: clamp(74px, 9.2vw, 125px);   /* locked to heading height */
+  width: clamp(69px, 8.54vw, 116px);   /* = height × (464÷500), exact aspect ratio */
   object-fit: cover;
+  object-position: top center;
+  flex-shrink: 0;
   border-radius: 4px;
   display: block;
   margin-bottom: 20px;
