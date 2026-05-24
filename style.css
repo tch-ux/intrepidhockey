@@ -2223,7 +2223,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .endorse-role {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   font-family: var(--font-display);
   font-weight: 500;
@@ -2242,10 +2242,10 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   color: rgba(255,255,255,0.32);
 }
 .endorse-logo {
+  width: 40px;               /* fixed column — both logos share same axis */
   height: 28px;
-  width: auto;
-  max-width: 52px;
   object-fit: contain;
+  object-position: center;   /* logo centred within the fixed 40×28 box */
   filter: grayscale(1) brightness(8) opacity(0.45);
   flex-shrink: 0;
   display: block;
