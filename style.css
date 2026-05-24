@@ -2122,6 +2122,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   }
   .fv-heading { margin-bottom: 0; }
   .fv-attr { padding-left: 0; }
+  .fv-attr-break { display: block; }
 }
 @media (max-width: 640px) {
   .family-verdict { padding: 72px 24px; }
