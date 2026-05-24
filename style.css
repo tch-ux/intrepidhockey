@@ -2093,7 +2093,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 /* Photo — no crop, full natural proportions */
 .fv-photo {
   grid-area: photo;
-  margin: 0;
+  margin-top: -80px;
   align-self: center;
   background-color: var(--neutral-850);
 }
