@@ -2289,12 +2289,12 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .endorse { padding: 72px 24px; }
   .endorse-person { flex-direction: column; align-items: flex-start; }
   .endorse-avatar {
-    width: 160px;           /* optical match to SCOTT HARRIS name at 28px */
-    max-width: none;        /* clear previous cap */
-    height: auto;           /* natural 464:500 ratio — full head visible */
-    object-fit: none;       /* redundant with height: auto */
-    object-position: top center;
-    margin: 0 0 20px;       /* left-aligned */
+    width: 140px;            /* one player card at 375px: (295px − 16px gap) ÷ 2 */
+    height: auto;            /* natural proportions — full image, no crop */
+    object-fit: unset;
+    object-position: unset;
+    display: block;
+    margin: 0 0 20px;
   }
   .endorse-quote { padding-left: 18px; }
 }
