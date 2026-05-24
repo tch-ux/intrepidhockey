@@ -2222,8 +2222,9 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 .endorse-role {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 11px;
@@ -2231,6 +2232,14 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   text-transform: uppercase;
   color: rgba(255,255,255,0.5);
   line-height: 1.5;
+}
+.endorse-cred-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.endorse-cred-line2 {
+  color: rgba(255,255,255,0.32);
 }
 .endorse-logo {
   height: 28px;
