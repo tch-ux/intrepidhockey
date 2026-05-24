@@ -2120,6 +2120,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
     row-gap: 36px;
   }
   .fv-heading { margin-bottom: 0; }
+  .fv-photo { margin-top: 0; align-self: start; }
   .fv-attr { padding-left: 0; }
   .fv-attr-break { display: block; }
 }
