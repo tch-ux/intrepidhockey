@@ -1352,6 +1352,9 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   color: var(--white);
   font-weight: 700;
 }
+.promise-path-actions {
+  margin-top: 40px;
+}
 @media (max-width: 880px) {
   .promise-path { padding: 80px 20px; }
   .promise-path-heading { margin-bottom: 32px; }
