@@ -1355,6 +1355,16 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .promise-path-actions {
   margin-top: 40px;
 }
+.promise-path-actions .btn-primary {
+  background: var(--white);
+  color: var(--neutral-900);
+}
+.promise-path-actions .btn-primary::before {
+  background: var(--neutral-900);
+}
+.promise-path-actions .btn-primary:hover {
+  color: var(--white);
+}
 @media (max-width: 880px) {
   .promise-path { padding: 80px 20px; }
   .promise-path-heading { margin-bottom: 32px; }
