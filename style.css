@@ -2106,7 +2106,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 
 /* No separator — section butts up against endorse */
-.family-verdict + .endorse { border-top: none; }
+.honest-path + .endorse { border-top: none; }
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 860px) {
