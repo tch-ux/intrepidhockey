@@ -1160,7 +1160,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 @media (max-width: 768px) {
   /* Give items an explicit bg so the transition has a defined start value */
   .acc-item {
-    background-color: var(--neutral-900);
+    background-color: var(--neutral-850);
     transition: background-color 250ms ease-out,
                 border-color      250ms ease-out;
   }
