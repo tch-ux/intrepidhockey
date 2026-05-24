@@ -1804,7 +1804,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 /* ── EVALUATION FORM ──────────────────────────────────────── */
 .eval {
   padding: 120px 40px;
-  background: var(--neutral-900);
+  background: var(--neutral-850);
   color: var(--white);
 }
 
