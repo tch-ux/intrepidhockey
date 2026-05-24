@@ -1722,10 +1722,8 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .founder-sig {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid var(--neutral-200);
+  gap: 8px;
+  margin-top: 40px;
 }
 .founder-sig-name {
   font-family: var(--font-display);
