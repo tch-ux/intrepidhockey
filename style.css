@@ -2156,7 +2156,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   border-radius: 4px;
   display: block;
   margin-bottom: 20px;
-  filter: grayscale(100%) contrast(1.05);
+  filter: contrast(1.05);
   border: 1px solid rgba(255,255,255,0.08);
 }
 .endorse-name {
