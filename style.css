@@ -2281,11 +2281,20 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .endorse-inner { grid-template-columns: 1fr; gap: 48px; }
   .endorse-person { flex-direction: row; align-items: flex-start; gap: 20px; }
   .endorse-avatar { height: 90px; flex-shrink: 0; margin-bottom: 0; }
+  /* Reorder: heading+quote first, photo+attribution second */
+  .endorse-content { order: 1; }
+  .endorse-person  { order: 2; }
 }
 @media (max-width: 640px) {
   .endorse { padding: 72px 24px; }
   .endorse-person { flex-direction: column; }
-  .endorse-avatar { height: 160px; }
+  .endorse-avatar {
+    width: 100%;
+    max-width: 240px;     /* portrait-sized, won't dominate full-width */
+    height: auto;         /* natural 464:500 proportions, no crop */
+    object-position: top center;
+    margin: 0 auto 20px;  /* centred below the quote */
+  }
   .endorse-quote { padding-left: 18px; }
 }
 
