@@ -2303,10 +2303,10 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
     object-fit: unset;
     object-position: unset;
     display: block;
-    margin: 0 0 12px;        /* photo → name */
+    margin: 0 0 8px;         /* photo → name */
   }
-  .endorse-divider { margin: 8px 0 12px; }   /* name → divider → credentials */
-  .endorse-roles   { gap: 8px; }             /* between credential rows */
+  .endorse-divider { margin: 6px 0 10px; }   /* name → divider → credentials */
+  .endorse-roles   { gap: 6px; }             /* between credential rows */
   .endorse-quote { padding-left: 18px; }
 }
 
