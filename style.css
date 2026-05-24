@@ -2062,18 +2062,18 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 /* Quote block */
 .fv-quote {
   grid-area: quote;
-  margin: 0 0 24px;
+  margin: 0 0 14px;
   padding-left: 28px;
   border-left: 3px solid var(--teal-400);
 }
 .fv-quote p {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(17px, 1.7vw, 21px);
+  font-size: clamp(18px, 1.8vw, 22px);
   line-height: 1.75;
   color: rgba(255,255,255,0.82);
   font-style: italic;
-  margin: 0 0 20px;
+  margin: 0 0 14px;
 }
 .fv-quote p:last-child { margin-bottom: 0; }
 
