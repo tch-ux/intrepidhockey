@@ -2028,7 +2028,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
 /* ── FAMILY VERDICT ──────────────────────────────────────── */
 .family-verdict {
-  background: var(--neutral-900);
+  background: var(--neutral-850);
   padding: 100px 40px;
 }
 
