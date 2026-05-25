@@ -121,11 +121,16 @@
   const cards = document.querySelectorAll('.svc');
   if (!cards.length) return;
 
+  // Guard: don't activate on page load — only respond after first scroll
+  let hasScrolled = false;
+  window.addEventListener('scroll', function () { hasScrolled = true; }, { once: true, passive: true });
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && hasScrolled) {
         entry.target.classList.add('svc-active');
-        io.unobserve(entry.target);
+      } else if (!entry.isIntersecting) {
+        entry.target.classList.remove('svc-active');
       }
     });
   }, {
