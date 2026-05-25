@@ -810,13 +810,16 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   transform-origin: bottom center;
   width: 70%;
 }
-.svc:hover { background: var(--teal-600); }
-.svc:hover .svc-num { color: var(--teal-200); }
-.svc:hover .svc-title, .svc:hover .svc-desc { color: #fff; }
-.svc:hover .svc-img { opacity: 0.3; }
-.svc:hover .svc-img-plan { transform: rotate(-5deg); }
-.svc:hover .svc-img-icetime { transform: rotate(2deg); }
-.svc:hover .svc-img-roster { transform: translateX(-50%) translateY(0); }
+/* hover: only on real pointer devices — prevents iOS tap-stuck-teal */
+@media (hover: hover) {
+  .svc:hover { background: var(--teal-600); }
+  .svc:hover .svc-num { color: var(--teal-200); }
+  .svc:hover .svc-title, .svc:hover .svc-desc { color: #fff; }
+  .svc:hover .svc-img { opacity: 0.3; }
+  .svc:hover .svc-img-plan { transform: rotate(-5deg); }
+  .svc:hover .svc-img-icetime { transform: rotate(2deg); }
+  .svc:hover .svc-img-roster { transform: translateX(-50%) translateY(0); }
+}
 
 /* iOS Safari tap-state — mirrors :hover (Safari won't fire :hover on divs) */
 .svc.svc-active                    { background: var(--teal-600); }
