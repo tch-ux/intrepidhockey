@@ -115,6 +115,27 @@
   els.forEach((el) => io.observe(el));
 })();
 
+/* ── PERIOD CARDS — SCROLL ACTIVATION (MOBILE) ────────────── */
+(function () {
+  if (!window.matchMedia('(max-width: 980px)').matches) return;
+  const cards = document.querySelectorAll('.svc');
+  if (!cards.length) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('svc-active');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {
+    rootMargin: '-40% 0px -40% 0px',
+    threshold: 0
+  });
+
+  cards.forEach((card) => io.observe(card));
+})();
+
 /* ── PROCESS TABS + MOBILE ACCORDION ──────────────────────── */
 (function () {
   const stageTabs = document.querySelector('.process-stage-tabs');
