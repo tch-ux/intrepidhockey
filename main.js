@@ -118,27 +118,38 @@
 /* ── PERIOD CARDS — SCROLL ACTIVATION (MOBILE) ────────────── */
 (function () {
   if (!window.matchMedia('(max-width: 980px)').matches) return;
-  const cards = document.querySelectorAll('.svc');
+  const cards = [...document.querySelectorAll('.svc')];
   if (!cards.length) return;
 
-  // Guard: don't activate on page load — only respond after first scroll
-  let hasScrolled = false;
-  window.addEventListener('scroll', function () { hasScrolled = true; }, { once: true, passive: true });
+  let ticking = false;
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && hasScrolled) {
-        entry.target.classList.add('svc-active');
-      } else if (!entry.isIntersecting) {
-        entry.target.classList.remove('svc-active');
+  function updateActive() {
+    const mid = window.innerHeight / 2;
+    let closest = null;
+    let closestDist = Infinity;
+
+    cards.forEach(function (card) {
+      const r = card.getBoundingClientRect();
+      const cardMid = r.top + r.height / 2;
+      /* Only consider cards whose center is actually visible on screen */
+      if (cardMid > 0 && cardMid < window.innerHeight) {
+        const dist = Math.abs(cardMid - mid);
+        if (dist < closestDist) { closestDist = dist; closest = card; }
       }
     });
-  }, {
-    rootMargin: '-40% 0px -40% 0px',
-    threshold: 0
-  });
 
-  cards.forEach((card) => io.observe(card));
+    /* Toggle: only the closest visible card is active, all others revert */
+    cards.forEach(function (card) {
+      card.classList.toggle('svc-active', card === closest);
+    });
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(function () { updateActive(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
 })();
 
 /* ── PROCESS TABS + MOBILE ACCORDION ──────────────────────── */
@@ -490,6 +501,8 @@
 (function () {
   /* Only needed on touch devices — desktop :hover works fine */
   if (!window.matchMedia('(pointer: coarse)').matches) return;
+  /* ≤980px is handled by scroll activation — skip to avoid conflict */
+  if (window.matchMedia('(max-width: 980px)').matches) return;
 
   const svcs = [...document.querySelectorAll('.svc')];
 
