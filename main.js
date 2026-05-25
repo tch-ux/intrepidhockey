@@ -121,35 +121,36 @@
   const cards = [...document.querySelectorAll('.svc')];
   if (!cards.length) return;
 
-  let ticking = false;
+  var raf = null;
 
   function updateActive() {
-    const mid = window.innerHeight / 2;
-    let closest = null;
-    let closestDist = Infinity;
+    raf = null;
+    var mid = window.innerHeight / 2;
+    var closest = null;
+    var minDist = Infinity;
 
     cards.forEach(function (card) {
-      const r = card.getBoundingClientRect();
-      const cardMid = r.top + r.height / 2;
-      /* Only consider cards whose center is actually visible on screen */
+      var r = card.getBoundingClientRect();
+      var cardMid = r.top + r.height / 2;
       if (cardMid > 0 && cardMid < window.innerHeight) {
-        const dist = Math.abs(cardMid - mid);
-        if (dist < closestDist) { closestDist = dist; closest = card; }
+        var d = Math.abs(cardMid - mid);
+        if (d < minDist) { minDist = d; closest = card; }
       }
     });
 
-    /* Toggle: only the closest visible card is active, all others revert */
-    cards.forEach(function (card) {
-      card.classList.toggle('svc-active', card === closest);
-    });
+    /* Step 1: strip svc-active from every card unconditionally */
+    cards.forEach(function (card) { card.classList.remove('svc-active'); });
+    /* Step 2: re-apply to the single closest card only */
+    if (closest) { closest.classList.add('svc-active'); }
   }
 
-  window.addEventListener('scroll', function () {
-    if (!ticking) {
-      requestAnimationFrame(function () { updateActive(); ticking = false; });
-      ticking = true;
-    }
-  }, { passive: true });
+  function onMove() {
+    if (raf) { cancelAnimationFrame(raf); }
+    raf = requestAnimationFrame(updateActive);
+  }
+
+  window.addEventListener('scroll',   onMove, { passive: true });
+  window.addEventListener('touchend', onMove, { passive: true });
 })();
 
 /* ── PROCESS TABS + MOBILE ACCORDION ──────────────────────── */
