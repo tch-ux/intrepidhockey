@@ -891,7 +891,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .process .section-num::before { background: var(--teal-300); }
 .process .section-title { color: #fff; }
 .process .section-title .accent { color: var(--teal-400); }
-.process .section-tag { color: var(--neutral-300); font-size: 18px; }
+.process .section-tag { color: var(--neutral-300); font-size: 18px; max-width: 560px; }
 
 .process-stage {
   max-width: 1400px;
