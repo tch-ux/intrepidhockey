@@ -762,6 +762,34 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 /* ── SERVICES ─────────────────────────────────────────────── */
 .services { padding: 120px 40px; background: var(--white); }
 
+/* Two-column headline layout */
+.services .section-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: center;
+}
+.services-col-left {
+  border-right: 1px solid var(--neutral-200);
+  padding-right: 60px;
+}
+.what-we-do-headline {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(72px, 12vw, 160px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.headline-line { display: block; }
+.headline-accent { color: var(--teal-600); font-style: italic; }
+.services .section-tag {
+  max-width: none;
+  padding-left: 60px;
+  align-self: center;
+}
+
 .svc-grid {
   max-width: 1400px;
   margin: 0 auto;
@@ -835,7 +863,19 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .services { padding: 80px 20px; }
   .svc-grid { grid-template-columns: 1fr; }
   .svc { border-right: none; padding: 40px 28px 160px; min-height: 460px; }
-  .services .section-title .accent { white-space: nowrap; }
+  /* Collapse to single column on mobile */
+  .services .section-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .services-col-left {
+    border-right: none;
+    padding-right: 0;
+  }
+  .what-we-do-headline { font-size: clamp(56px, 14vw, 120px); }
+  .services .section-tag { padding-left: 0; max-width: 480px; }
 }
 
 /* ── PROCESS ──────────────────────────────────────────────── */
