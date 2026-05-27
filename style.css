@@ -1346,11 +1346,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .promise-path-actions {
   margin-top: 40px;
 }
-/* Ghost appearance for primary button on matching teal background */
-.promise-path-actions .btn-primary {
-  border: 2px solid #ffffff;
-  color: #ffffff;
-}
+
 @media (max-width: 880px) {
   .promise-path { padding: 80px 20px; }
   .promise-path-heading { margin-bottom: 32px; }
