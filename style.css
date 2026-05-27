@@ -776,8 +776,8 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .what-we-do-headline {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(72px, 12vw, 160px);
-  line-height: 0.92;
+  font-size: clamp(48px, 7vw, 110px);
+  line-height: 0.9;
   letter-spacing: -0.025em;
   text-transform: uppercase;
   margin: 0;
@@ -874,7 +874,6 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
     border-right: none;
     padding-right: 0;
   }
-  .what-we-do-headline { font-size: clamp(56px, 14vw, 120px); }
   .services .section-tag { padding-left: 0; max-width: 480px; }
 }
 
