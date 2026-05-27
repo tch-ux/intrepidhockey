@@ -1330,7 +1330,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   margin-bottom: 44px;
 }
 .promise-path-accent {
-  color: var(--neutral-900);
+  color: #ffffff;
   font-style: italic;
 }
 .promise-path-body {
@@ -1345,6 +1345,11 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 .promise-path-actions {
   margin-top: 40px;
+}
+/* Ghost appearance for primary button on matching teal background */
+.promise-path-actions .btn-primary {
+  border: 2px solid #ffffff;
+  color: #ffffff;
 }
 @media (max-width: 880px) {
   .promise-path { padding: 80px 20px; }
@@ -2009,15 +2014,15 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   align-items: flex-start;
   gap: 12px;
   cursor: pointer;
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
   line-height: 1.55;
 }
 .eval-consent-cb {
   appearance: none;
   -webkit-appearance: none;
-  width: 18px; height: 18px;
-  min-width: 18px;
+  width: 20px; height: 20px;
+  min-width: 20px;
   border: 1.5px solid rgba(255,255,255,0.25);
   border-radius: 3px;
   background: rgba(255,255,255,0.06);
@@ -2033,7 +2038,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .eval-consent-cb:checked::after {
   content: "";
   position: absolute;
-  left: 4px; top: 1px;
+  left: 5px; top: 2px;
   width: 6px; height: 10px;
   border: 2px solid #fff;
   border-top: none;
@@ -2061,9 +2066,8 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 /* Match button colour to the "EVALUATION." accent (teal-400) */
 #eval-submit-btn { background: var(--teal-400); }
 
-/* Disabled state while consent unchecked */
+/* Disabled state while consent unchecked — visually active, functionally blocked */
 .eval-submit .btn-primary:disabled {
-  opacity: 0.45;
   cursor: not-allowed;
   pointer-events: none;
 }
