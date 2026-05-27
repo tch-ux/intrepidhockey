@@ -786,8 +786,11 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 .headline-accent { color: var(--teal-600); font-style: italic; }
 .services .section-tag {
   max-width: none;
-  padding-left: 60px;
+  margin-left: 44px;
+  padding-left: 16px;
+  border-left: 3px solid var(--teal-400);
   align-self: center;
+  font-size: 18px;
 }
 
 .svc-grid {
@@ -874,7 +877,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
     border-right: none;
     padding-right: 0;
   }
-  .services .section-tag { padding-left: 0; max-width: 480px; }
+  .services .section-tag { padding-left: 0; margin-left: 0; border-left: none; max-width: 480px; }
 }
 
 /* ── PROCESS ──────────────────────────────────────────────── */
