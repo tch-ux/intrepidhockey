@@ -1656,12 +1656,14 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   display: grid;
   grid-template-columns: 55fr 45fr;
   grid-template-areas:
-    "header visual"
-    "text    visual";
+    "eyebrow  ."
+    "header   visual"
+    "text     visual";
   column-gap: 80px;
   row-gap: 16px;
   align-items: start;
 }
+.founder-eyebrow { grid-area: eyebrow; }
 .founder-visual  { grid-area: visual; }
 .founder-header  { grid-area: header; }
 .founder-text    { grid-area: text; }
@@ -1729,7 +1731,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--white);
-  margin: 16px 0 8px;
+  margin: 0 0 8px;
 }
 .founder-accent { color: var(--teal-400); font-style: italic; }
 .founder .section-num { color: rgba(255,255,255,0.4); }
@@ -1744,7 +1746,7 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
   .founder { padding: 72px 20px; }
   .founder-inner {
     grid-template-columns: 1fr;
-    grid-template-areas: "header" "visual" "text";
+    grid-template-areas: "eyebrow" "header" "visual" "text";
     gap: 40px;
   }
   .founder-visual { position: static; }
