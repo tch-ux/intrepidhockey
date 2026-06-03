@@ -2248,10 +2248,9 @@ body.cursor-hover .cursor-dot { width: 0; height: 0; }
 }
 
 /* ── ENDORSEMENT ─────────────────────────────────────────── */
-.endorse {
-  background: var(--neutral-850);
-  padding: 100px 40px;
-}
+.endorse { background: var(--neutral-850); padding: 100px 40px; }
+/* toggle: pridaj triedu endorse--hidden na <section class="endorse"> pre skrytie */
+.endorse--hidden { display: none !important; }
 .endorse-inner {
   max-width: 1100px;
   margin: 0 auto;
